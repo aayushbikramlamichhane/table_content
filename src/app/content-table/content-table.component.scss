@@ -1,0 +1,22 @@
+.arrow-up {
+  cursor: pointer;
+}
+
+.arrow-down {
+  cursor: pointer;
+}
+
+.disabled-arrow {
+  color: rgb(163, 163, 163) !important;
+  pointer-events: none;
+}
+
+.no-data {
+  display: flex;
+  justify-content: center;
+}
+
+.arrow-item{
+  border: none;
+  background: white;
+}

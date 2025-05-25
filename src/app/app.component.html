@@ -1,0 +1,25 @@
+<app-content-table [tableDataList]="users" (onSort)="onSort($event)">
+  <ng-template appTableColumn header="S.N." name="no" let-item [sortEnable]="true">
+    {{item.no}}
+  </ng-template>
+
+  <ng-template appTableColumn header="Name" name="name" let-item [sortEnable]="true">
+    <i><b>{{item.name}}</b></i>
+  </ng-template>
+
+  <ng-template appTableColumn header="Email" name="email" let-item>
+    <b>{{item.email}}</b>
+  </ng-template>
+
+  <ng-template appTableColumn header="Age" name="age" let-item [sortEnable]="true">
+    {{item.age}}
+  </ng-template>
+
+  <ng-template appTableColumn header="Address" name="address" let-item>
+    <b>{{item.address}}</b>
+  </ng-template>
+
+  <ng-template appTableColumn header="Date" name="date" let-item [sortEnable]="true">
+    {{item.date }}
+  </ng-template>
+</app-content-table>
