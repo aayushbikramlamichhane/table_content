@@ -1,0 +1,8 @@
+<app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)">
+    <ng-container *ngFor="let configValue of resolvedTableConfig">
+        <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name"
+            [sortEnable]="configValue.sortEnable" let-userData>
+            {{userData[configValue.name]}}
+        </ng-template>
+    </ng-container>
+</app-content-table>

@@ -1,15 +1,12 @@
-import {
-  Component
-} from '@angular/core';
-import { TableEvent } from './content-table/models/data';
+import { Component } from '@angular/core';
+import { TableEvent } from './shared/models/data';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent  {
-  
+export class AppComponent {
   users = [
     {
       no: 1,
@@ -61,6 +58,36 @@ export class AppComponent  {
     },
   ];
 
+  tableConfig = [
+      {
+        header: 'S.N.',
+        name: 'no',
+        sortEnable: true,
+      },
+    {
+      header: 'Name',
+      name: 'name',
+      sortEnable: true,
+    },
+    // {
+    //   header: 'Email',
+    //   name: 'email',
+    // },
+    // {
+    //   header: 'Age',
+    //   name: 'age',
+    //   sortEnable: true,
+    // },
+    // {
+    //   header: 'Address',
+    //   name: 'address',
+    // },
+    // {
+    //   header: 'Date',
+    //   name: 'date',
+    //   sortEnable: true,
+    // },
+  ];
 
   onSort(event: TableEvent) {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
