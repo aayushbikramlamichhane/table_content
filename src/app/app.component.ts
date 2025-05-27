@@ -69,24 +69,24 @@ export class AppComponent {
       name: 'name',
       sortEnable: true,
     },
-    // {
-    //   header: 'Email',
-    //   name: 'email',
-    // },
-    // {
-    //   header: 'Age',
-    //   name: 'age',
-    //   sortEnable: true,
-    // },
-    // {
-    //   header: 'Address',
-    //   name: 'address',
-    // },
-    // {
-    //   header: 'Date',
-    //   name: 'date',
-    //   sortEnable: true,
-    // },
+    {
+      header: 'Email',
+      name: 'email',
+    },
+    {
+      header: 'Age',
+      name: 'age',
+      sortEnable: true,
+    },
+    {
+      header: 'Address',
+      name: 'address',
+    },
+    {
+      header: 'Date',
+      name: 'date',
+      sortEnable: true,
+    },
   ];
 
   onSort(event: TableEvent) {

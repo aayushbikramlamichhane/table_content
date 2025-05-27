@@ -10,6 +10,8 @@ import { TableColumnDirective } from './shared/directives/table-column.directive
 import { SortTableDirective } from './shared/directives/sort-table.directive';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ContentViewComponent } from './components/content-view/content-view.component';
+import { ContentViewKeysComponent } from './components/content-view-keys/content-view-keys.component';
+import { UpperCasePipe } from './shared/pipes/upper-case.pipe';
 
 @NgModule({
   declarations: [
@@ -18,6 +20,8 @@ import { ContentViewComponent } from './components/content-view/content-view.com
     TableColumnDirective,
     SortTableDirective,
     ContentViewComponent,
+    ContentViewKeysComponent,
+    UpperCasePipe,
   ],
   imports: [BrowserModule, AppRoutingModule, NgxDatatableModule, FormsModule, NgbModule],
   providers: [],

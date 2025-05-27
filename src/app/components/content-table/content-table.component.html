@@ -7,7 +7,7 @@
                     class="table-header"
                 >
                     <div class="item-header d-flex gap-1 justify-content-center align-items-center">
-                        {{item.header}}
+                        {{item.header | upperCase}}
                         <button
                             *ngIf="item.sortEnable" 
                             class="arrow-item d-flex flex-column "
