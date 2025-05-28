@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TableData, TableEvent } from 'src/app/shared/models/data';
+import { DataSet, SortEvent } from 'src/app/shared/models/data';
 
 @Component({
   selector: 'app-content-view-keys',
@@ -8,18 +8,21 @@ import { TableData, TableEvent } from 'src/app/shared/models/data';
   styleUrls: ['./content-view-keys.component.scss'],
 })
 export class ContentViewKeysComponent implements OnInit {
-  objectKeys!: any[];
-  @Input() tableDataList!: TableData[];
-  @Output() sortValue = new Subject<TableEvent>();
+  userHeader!: any;
+  header!: string[];
+  incomeHeader!: any;
 
+  @Input() tableDataList!: DataSet[];
+  @Input() userIncome!: any;
+  @Input() sortEnable: boolean = false;
+  @Output() sortValue = new Subject<SortEvent>();
   ngOnInit(): void {
     // getting keys from tableDataList
-    this.objectKeys = Object.keys(this.tableDataList[0]);
+    this.header = Object.keys(this.tableDataList[0]);
   }
 
-  
   // For emitting name of field and sortOrder
-  onSort(event: TableEvent) {
+  onSort(event: SortEvent) {
     this.sortValue.next({
       name: event?.name,
       sortOrder: event?.sortOrder,

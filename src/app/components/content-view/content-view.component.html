@@ -1,13 +1,24 @@
 <app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)">
     <ng-container *ngFor="let configValue of tableConfig">
-        <ng-template 
-            appTableColumn 
-            [header]="configValue.header" 
-            [name]="configValue.name"
-            [sortEnable]="configValue.sortEnable" 
-            let-userData
-        >
-            {{userData[configValue.name]}}
-        </ng-template>
+        <ng-container *ngIf="configValue.header != action.Action">
+            <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name"
+                [sortEnable]="configValue.sortEnable" let-userData>
+                {{userData[configValue.name]}}
+            </ng-template>
+        </ng-container>
+
+
+        <ng-container *ngIf="configValue.header == action.Action">
+            <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name" let-userData>
+                <div class="button-container">
+                    <ng-container *ngFor="let action of configValue.actions">
+                        <button class="button-icon" (click) = "buttonClicked(action?.type, userData?.no)">
+                            <img [src]="action.icon" alt="icon" class="image-icon">
+                        </button>
+                    </ng-container>
+                </div>
+            </ng-template>
+        </ng-container>
     </ng-container>
 </app-content-table>
+

@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { TableColumnDirective } from '../../shared/directives/table-column.directive';
 import { Subject } from 'rxjs';
-import { TableData, TableEvent } from '../../shared/models/data';
+import { DataSet, SortEvent } from '../../shared/models/data';
 import { SortOrder } from '../../shared/models/enum';
 
 @Component({
@@ -16,22 +16,22 @@ import { SortOrder } from '../../shared/models/enum';
   styleUrls: ['./content-table.component.scss'],
 })
 export class ContentTableComponent  {
-  
   sortStates: { [name: string]: SortOrder } = {};
   sortOrder = SortOrder;
 
-  @Input() tableDataList!: TableData[];
-  @Output() onSort = new Subject<TableEvent>();
+  @Input() tableDataList!: DataSet[];
+  @Input() userIncome!: any;
+  @Output() onSort = new Subject<SortEvent>();
   @ContentChildren(TableColumnDirective)
   column!: QueryList<TableColumnDirective>;
-  
+
   // For Disabling the button according to their sortOrder
   disableButton(name: string, sortOrder: SortOrder) {
     return this.sortStates[name] === sortOrder;
   }
 
   // For emitting name of field and sortOrder
-  sortTable(event: TableEvent) {
+  sortTable(event: SortEvent) {
     this.sortStates[event.name] = event.sortOrder;
     this.onSort.next({ name: event.name, sortOrder: event.sortOrder });
   }

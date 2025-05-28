@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { TableEvent } from './shared/models/data';
+import { SortEvent, TypeEvent } from './shared/models/data';
 
 @Component({
   selector: 'app-root',
@@ -59,11 +59,11 @@ export class AppComponent {
   ];
 
   tableConfig = [
-      {
-        header: 'S.N.',
-        name: 'no',
-        sortEnable: true,
-      },
+    {
+      header: 'S.N.',
+      name: 'no',
+      sortEnable: true,
+    },
     {
       header: 'Name',
       name: 'name',
@@ -78,6 +78,7 @@ export class AppComponent {
       name: 'age',
       sortEnable: true,
     },
+
     {
       header: 'Address',
       name: 'address',
@@ -87,9 +88,27 @@ export class AppComponent {
       name: 'date',
       sortEnable: true,
     },
+    {
+      header: 'Actions',
+      name: 'action',
+      actions: [
+        {
+          type: 'view',
+          icon: '/assets/img/eye.png',
+        },
+        {
+          type: 'edit',
+          icon: '/assets/img/edit.svg',
+        },
+      ],
+    },
   ];
 
-  onSort(event: TableEvent) {
+  onSort(event: SortEvent) {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
+  }
+
+  findType(event: TypeEvent) {
+    console.log({ type: event?.type, id: event?.id });
   }
 }

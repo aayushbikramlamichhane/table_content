@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { TableColumnDirective } from './table-column.directive';
 import { SortOrder } from '../models/enum';
-import { TableEvent } from '../models/data';
+import { SortEvent } from '../models/data';
 
 @Directive({
   selector: '[appSortTable]',
@@ -16,7 +16,7 @@ export class SortTableDirective {
   direction: SortOrder = SortOrder.Descending;
 
   @Input() tableColumn!: TableColumnDirective;
-  @Output() sortChange = new EventEmitter<TableEvent>();
+  @Output() sortChange = new EventEmitter<SortEvent>();
 
   @HostListener('click')
   click() {

@@ -1,6 +1,7 @@
-import { Component, Input, OnInit, Output } from '@angular/core';
+import { Component, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { TableData, TableEvent } from 'src/app/shared/models/data';
+import { DataSet, SortEvent, TypeEvent } from 'src/app/shared/models/data';
+import { Action } from '../../shared/models/enum';
 
 @Component({
   selector: 'app-content-view',
@@ -8,16 +9,24 @@ import { TableData, TableEvent } from 'src/app/shared/models/data';
   styleUrls: ['./content-view.component.scss'],
 })
 export class ContentViewComponent {
-
   @Input() tableConfig!: any[];
-  @Input() tableDataList!: TableData[];
-  @Output() sortValue = new Subject<TableEvent>();
+  @Input() tableDataList!: DataSet[];
+  @Output() sortValue = new Subject<SortEvent>();
+  @Output() typeValue = new Subject<TypeEvent>()
+
+  action = Action
 
   // For emitting name of field and sortOrder
-  onSort(event: TableEvent) {
+  onSort(event: SortEvent) {
     this.sortValue.next({
       name: event?.name,
       sortOrder: event?.sortOrder,
     });
   }
+
+  // for emitting type and id 
+  buttonClicked(type:string,id:number){
+    this.typeValue.next({type: type, id:id})
+  }
+
 }

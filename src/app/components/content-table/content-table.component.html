@@ -1,29 +1,17 @@
 <div class="table-wrapper p-1 table-responsive ">
-    <table class="table table-bordered table-striped">
+    <table class="table table-bordered">
         <thead class="table-head">
             <tr class="success">
-                <th     
-                    *ngFor="let item of column" 
-                    class="table-header"
-                >
+                <th *ngFor="let item of column" class="table-header">
                     <div class="item-header d-flex gap-1 justify-content-center align-items-center">
-                        {{item.header | upperCase}}
-                        <button
-                            *ngIf="item.sortEnable" 
-                            class="arrow-item d-flex flex-column "
-                            appSortTable
-                            (sortChange)="sortTable($event)"
-                            [tableColumn]="item"
-                        >
-                            <i 
-                                class="fa-solid fa-angle-up arrow-up fa-hand-pointer"
-                                [ngClass]="{ 'disabled-arrow': disableButton(item.name, sortOrder.Ascending) }" 
-                            >
+                        {{item.header }}
+                        <button *ngIf="item.sortEnable" class="arrow-item d-flex flex-column " appSortTable
+                            (sortChange)="sortTable($event)" [tableColumn]="item">
+                            <i class="fa-solid fa-angle-up arrow-up fa-hand-pointer"
+                                [ngClass]="{ 'disabled-arrow': disableButton(item.name, sortOrder.Ascending) }">
                             </i>
-                            <i 
-                                class="fa-solid fa-angle-down arrow-down"
-                                [ngClass]="{ 'disabled-arrow': disableButton(item.name, sortOrder.Descending)}" 
-                            >
+                            <i class="fa-solid fa-angle-down arrow-down"
+                                [ngClass]="{ 'disabled-arrow': disableButton(item.name, sortOrder.Descending)}">
                             </i>
                         </button>
                     </div>
@@ -36,17 +24,13 @@
                     <p class="no-data">No data to show</p>
                 </td>
             </tr>
-            <tr 
-                *ngFor="let item of tableDataList" 
-                class="body-row"
-            >
-                <td 
-                    class="table-content text-center" 
-                    *ngFor="let value of column"
-                >
+
+            <tr *ngFor="let item of tableDataList" class="body-row">
+                <td class="table-content text-center" *ngFor="let value of column">
                     <ng-container *ngTemplateOutlet="value.templateRef; context: { $implicit: item }"></ng-container>
                 </td>
             </tr>
+
         </tbody>
     </table>
 </div>

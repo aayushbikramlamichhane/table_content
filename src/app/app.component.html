@@ -24,15 +24,18 @@
   </ng-template>
 </app-content-table> -->
 
-<!-- <app-content-view 
+<app-content-view 
   [tableConfig]="tableConfig" 
   [tableDataList]="users" 
   (sortValue)="onSort($event)"
+  (typeValue)="findType($event)"
 >
-</app-content-view> -->
+</app-content-view>
 
-<app-content-view-keys 
+<!-- <app-content-view-keys 
   [tableDataList]="users" 
+  [userIncome]="userIncome"
   (sortValue)="onSort($event)"
 >
-</app-content-view-keys>
+  <b>Aayush</b>
+</app-content-view-keys> -->
