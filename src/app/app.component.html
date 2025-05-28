@@ -1,40 +1,13 @@
-<!-- <app-content-table [tableDataList]="users" (onSort)="onSort($event)">
-  <ng-template appTableColumn header="S.N." name="no" let-item [sortEnable]="true">
-    {{item.no}}
-  </ng-template>
-
-  <ng-template appTableColumn header="Name" name="name" let-item [sortEnable]="true">
-    <i><b>{{item.name}}</b></i>
-  </ng-template>
-
-  <ng-template appTableColumn header="Email" name="email" let-item>
-    <b>{{item.email}}</b>
-  </ng-template>
-
-  <ng-template appTableColumn header="Age" name="age" let-item [sortEnable]="true">
-    {{item.age}}
-  </ng-template>
-
-  <ng-template appTableColumn header="Address" name="address" let-item>
-    <b>{{item.address}}</b>
-  </ng-template>
-
-  <ng-template appTableColumn header="Date" name="date" let-item [sortEnable]="true">
-    {{item.date }}
-  </ng-template>
-</app-content-table> -->
-
 <app-content-view 
   [tableConfig]="tableConfig" 
   [tableDataList]="users" 
   (sortValue)="onSort($event)"
-  (typeValue)="findType($event)"
+  (typeValue)="onActionReceive($event)"
 >
 </app-content-view>
 
 <!-- <app-content-view-keys 
   [tableDataList]="users" 
-  [userIncome]="userIncome"
   (sortValue)="onSort($event)"
 >
   <b>Aayush</b>

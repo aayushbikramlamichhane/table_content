@@ -13,7 +13,6 @@ export class ContentViewKeysComponent implements OnInit {
   incomeHeader!: any;
 
   @Input() tableDataList!: DataSet[];
-  @Input() userIncome!: any;
   @Input() sortEnable: boolean = false;
   @Output() sortValue = new Subject<SortEvent>();
   ngOnInit(): void {

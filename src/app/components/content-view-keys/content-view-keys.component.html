@@ -1,14 +1,7 @@
-<app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)" [userIncome]="userIncome">
+<app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)" >
     <ng-container *ngFor="let configValue of header">
         <ng-template appTableColumn [header]="configValue" [name]="configValue" [sortEnable]="sortEnable" let-userData>
             {{userData[configValue]}}
         </ng-template>
-
     </ng-container>
-
-    <!-- <ng-template appTableColumn header="Income" name="income" let-item [sortEnable]="true">
-        {{item.income }}
-    </ng-template> -->
 </app-content-table>
-
-<!-- <ng-content ></ng-content> -->

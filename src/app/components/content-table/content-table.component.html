@@ -2,7 +2,7 @@
     <table class="table table-bordered">
         <thead class="table-head">
             <tr class="success">
-                <th *ngFor="let item of column" class="table-header">
+                <th *ngFor="let item of column" class="table-header" [ngStyle]="{'width': item.width || 'auto'}">
                     <div class="item-header d-flex gap-1 justify-content-center align-items-center">
                         {{item.header }}
                         <button *ngIf="item.sortEnable" class="arrow-item d-flex flex-column " appSortTable
@@ -27,10 +27,10 @@
 
             <tr *ngFor="let item of tableDataList" class="body-row">
                 <td class="table-content text-center" *ngFor="let value of column">
-                    <ng-container *ngTemplateOutlet="value.templateRef; context: { $implicit: item }"></ng-container>
+                    <ng-container *ngTemplateOutlet="value.templateRef; context: { $implicit: item }">
+                    </ng-container>
                 </td>
             </tr>
-
         </tbody>
     </table>
 </div>

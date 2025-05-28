@@ -3,7 +3,3 @@ export enum SortOrder {
   Descending = 'DESC',
 }
 
-
-export enum Action{
-  Action = 'Actions'
-}

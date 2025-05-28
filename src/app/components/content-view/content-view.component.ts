@@ -1,7 +1,7 @@
 import { Component, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 import { DataSet, SortEvent, TypeEvent } from 'src/app/shared/models/data';
-import { Action } from '../../shared/models/enum';
+import { action } from 'src/app/shared/models/constants';
 
 @Component({
   selector: 'app-content-view',
@@ -13,8 +13,7 @@ export class ContentViewComponent {
   @Input() tableDataList!: DataSet[];
   @Output() sortValue = new Subject<SortEvent>();
   @Output() typeValue = new Subject<TypeEvent>()
-
-  action = Action
+ action = action;
 
   // For emitting name of field and sortOrder
   onSort(event: SortEvent) {
@@ -23,9 +22,9 @@ export class ContentViewComponent {
       sortOrder: event?.sortOrder,
     });
   }
-
+// rename as action trigger
   // for emitting type and id 
-  buttonClicked(type:string,id:number){
+  actionTrigger(type:string,id:number){
     this.typeValue.next({type: type, id:id})
   }
 

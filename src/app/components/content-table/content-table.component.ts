@@ -20,7 +20,6 @@ export class ContentTableComponent  {
   sortOrder = SortOrder;
 
   @Input() tableDataList!: DataSet[];
-  @Input() userIncome!: any;
   @Output() onSort = new Subject<SortEvent>();
   @ContentChildren(TableColumnDirective)
   column!: QueryList<TableColumnDirective>;
@@ -29,6 +28,7 @@ export class ContentTableComponent  {
   disableButton(name: string, sortOrder: SortOrder) {
     return this.sortStates[name] === sortOrder;
   }
+
 
   // For emitting name of field and sortOrder
   sortTable(event: SortEvent) {

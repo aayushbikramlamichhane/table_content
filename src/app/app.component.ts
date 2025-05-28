@@ -63,30 +63,35 @@ export class AppComponent {
       header: 'S.N.',
       name: 'no',
       sortEnable: true,
+      width: '5%',
     },
     {
       header: 'Name',
       name: 'name',
       sortEnable: true,
+      width: '20rem',
     },
     {
       header: 'Email',
       name: 'email',
+      width: '22rem',
     },
     {
       header: 'Age',
       name: 'age',
       sortEnable: true,
+      width: '5%',
     },
-
     {
       header: 'Address',
       name: 'address',
+      width: '15rem',
     },
     {
       header: 'Date',
       name: 'date',
       sortEnable: true,
+      width: '15rem',
     },
     {
       header: 'Actions',
@@ -97,10 +102,17 @@ export class AppComponent {
           icon: '/assets/img/eye.png',
         },
         {
-          type: 'edit',
-          icon: '/assets/img/edit.svg',
+          type: 'menu',
+          icon: '/assets/img/menu.svg',
+          templateItem: [
+            {
+              type: 'edit',
+              Value: '/assets/img/edit.svg',
+            },
+          ],
         },
       ],
+      width: '10%',
     },
   ];
 
@@ -108,7 +120,7 @@ export class AppComponent {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
   }
 
-  findType(event: TypeEvent) {
+  onActionReceive(event: TypeEvent) {
     console.log({ type: event?.type, id: event?.id });
   }
 }
