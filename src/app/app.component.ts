@@ -107,7 +107,7 @@ export class AppComponent {
           templateItem: [
             {
               type: 'edit',
-              Value: '/assets/img/edit.svg',
+              icon: '/assets/img/edit.svg',
             },
           ],
         },

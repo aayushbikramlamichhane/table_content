@@ -11,12 +11,36 @@
             <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name" let-userData>
                 <div class="button-container">
                     <ng-container *ngFor="let action of configValue.actions">
-                        <button class="button-icon" (click)="actionTrigger(action.type, userData.no)">
-                            <img [src]="action.icon" alt="icon" class="image-icon">
-                        </button>
+                        <ng-container *ngIf="!action.templateItem">
+                            <button class="button-icon" (click)="actionTrigger(action.type, userData.no)">
+                                <img [src]="action.icon" alt="icon" class="image-icon">
+                            </button>
+                        </ng-container>
+
+                        <ng-container *ngIf="action.templateItem">
+                            <button class="button-icon" (click)="toggleMenu(userData.no)">
+                                <img [src]="action.icon" alt="icon" class="image-icon">
+                            </button>
+                        </ng-container>
+
+                        <ng-container *ngIf="dropdownState[userData.no]">
+                            <ng-container *ngTemplateOutlet="menuItem; context: {$implicit: action.templateItem,menuId: userData.no}">
+                            </ng-container>
+                        </ng-container>
+                        
                     </ng-container>
                 </div>
             </ng-template>
         </ng-container>
     </ng-container>
 </app-content-table>
+
+<ng-template #menuItem let-menuItems let-menuId = 'menuId'>
+    <ng-container *ngFor="let item of menuItems">
+        <div class="menu-container">
+            <button class="button-icon" (click)="actionTrigger(item.type, menuId)">
+                <img [src]="item.icon" alt="icon" class="image-icon">
+                </button>
+        </div>
+    </ng-container>
+</ng-template>
