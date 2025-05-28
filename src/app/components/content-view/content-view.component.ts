@@ -9,11 +9,12 @@ import { action } from 'src/app/shared/models/constants';
   styleUrls: ['./content-view.component.scss'],
 })
 export class ContentViewComponent {
+  dropdownState: { [key: number]: boolean } = {};
   @Input() tableConfig!: any[];
   @Input() tableDataList!: DataSet[];
   @Output() sortValue = new Subject<SortEvent>();
-  @Output() typeValue = new Subject<TypeEvent>()
- action = action;
+  @Output() typeValue = new Subject<TypeEvent>();
+  action = action;
 
   // For emitting name of field and sortOrder
   onSort(event: SortEvent) {
@@ -22,10 +23,15 @@ export class ContentViewComponent {
       sortOrder: event?.sortOrder,
     });
   }
-// rename as action trigger
-  // for emitting type and id 
-  actionTrigger(type:string,id:number){
-    this.typeValue.next({type: type, id:id})
+  // for emitting type and id
+  actionTrigger(type: string, id: number) {
+    this.typeValue.next({ type: type, id: id });
+  }
+
+  // for showing the item of menu
+  toggleMenu(id: number) {
+    this.dropdownState[id] = !this.dropdownState[id];
+    console.log(this.dropdownState[id]);
   }
 
 }
