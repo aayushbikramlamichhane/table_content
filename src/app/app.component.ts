@@ -9,7 +9,7 @@ import { SortEvent, TypeEvent } from './shared/models/data';
 export class AppComponent {
   users = [
     {
-      no: 1,
+      id: 1,
       name: 'Aayush Bikram Lamichhane',
       email: 'aayush@example.com',
       age: 23,
@@ -17,7 +17,7 @@ export class AppComponent {
       date: '2025-02-14',
     },
     {
-      no: 4,
+      id: 4,
       name: 'John Cena',
       email: 'john@example.com',
       age: 29,
@@ -25,7 +25,7 @@ export class AppComponent {
       date: '2022-04-15',
     },
     {
-      no: 3,
+      id: 3,
       name: 'Mary Jane',
       email: 'jane@example.com',
       age: 21,
@@ -33,7 +33,7 @@ export class AppComponent {
       date: '2022-04-10',
     },
     {
-      no: 5,
+      id: 5,
       name: 'Micheal Jackson',
       email: 'mj@example.com',
       age: 20,
@@ -41,7 +41,7 @@ export class AppComponent {
       date: '2020-05-01',
     },
     {
-      no: 6,
+      id: 6,
       name: 'Ayur Adhikari',
       email: 'ayur@example.com',
       age: 24,
@@ -49,7 +49,7 @@ export class AppComponent {
       date: '2020-03-18',
     },
     {
-      no: 10,
+      id: 10,
       name: 'Sagar Khanal',
       email: 'sagar@example.com',
       age: 25,
@@ -61,9 +61,13 @@ export class AppComponent {
   tableConfig = [
     {
       header: 'S.N.',
-      name: 'no',
+      name: 'id',
       sortEnable: true,
       width: '5%',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'test',
+      },
     },
     {
       header: 'Name',

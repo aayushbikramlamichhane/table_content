@@ -9,29 +9,36 @@ import { action } from 'src/app/shared/models/constants';
   styleUrls: ['./content-view.component.scss'],
 })
 export class ContentViewComponent {
-  dropdownState: { [key: number]: boolean } = {};
   @Input() tableConfig!: any[];
   @Input() tableDataList!: DataSet[];
-  @Output() sortValue = new Subject<SortEvent>();
-  @Output() typeValue = new Subject<TypeEvent>();
+  @Output() onSortTriggered = new Subject<SortEvent>();
+  @Output() onActionTriggered = new Subject<TypeEvent>();
   action = action;
 
   // For emitting name of field and sortOrder
   onSort(event: SortEvent) {
-    this.sortValue.next({
+    this.onSortTriggered.next({
       name: event?.name,
       sortOrder: event?.sortOrder,
     });
   }
   // for emitting type and id
-  actionTrigger(type: string, id: number) {
-    this.typeValue.next({ type: type, id: id });
+  onActionTrigger(type: string, id: number) {
+    this.onActionTriggered.next({ type: type, id: id });
   }
 
   // for showing the item of menu
-  toggleMenu(id: number) {
-    this.dropdownState[id] = !this.dropdownState[id];
-    console.log(this.dropdownState[id]);
+  onActionTypeSelect(type: string, id: number) {
+    this.onActionTriggered.next({ type: type, id: id });
   }
 
+  // getTableData(value: string | number, dataStyle: any) {
+  //   switch (dataStyle.type) {
+  //     case 'badge':
+  //       `<div class='{{dataStyle.styleClass}}'>{{value}}</div>`;
+  //       break;
+  //     default:
+  //       return value;
+  //   }
+  // }
 }

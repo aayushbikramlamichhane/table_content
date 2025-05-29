@@ -29,7 +29,6 @@ export class ContentTableComponent  {
     return this.sortStates[name] === sortOrder;
   }
 
-
   // For emitting name of field and sortOrder
   sortTable(event: SortEvent) {
     this.sortStates[event.name] = event.sortOrder;

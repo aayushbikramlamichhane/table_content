@@ -1,8 +1,8 @@
 <app-content-view 
   [tableConfig]="tableConfig" 
   [tableDataList]="users" 
-  (sortValue)="onSort($event)"
-  (typeValue)="onActionReceive($event)"
+  (onSortTriggered)="onSort($event)"
+  (onActionTriggered)="onActionReceive($event)"
 >
 </app-content-view>
 
