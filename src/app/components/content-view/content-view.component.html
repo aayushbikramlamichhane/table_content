@@ -3,8 +3,9 @@
     <ng-container *ngIf="configValue.header != action">
       <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name"
         [sortEnable]="configValue.sortEnable" [width]="configValue.width" let-userData>
-        {{ userData[configValue.name] }}
-          <!-- {{getTableData(userData[configValue.name], configValue.dataStyle)}} -->
+        <ng-container
+          *ngTemplateOutlet="getTableData( configValue.dataStyle); context: { userData: userData, configValue: configValue }">
+        </ng-container>
       </ng-template>
     </ng-container>
 
@@ -38,4 +39,12 @@
       </button>
     </ng-container>
   </div>
+</ng-template>
+
+<ng-template #badgeType let-userData="userData" let-configValue='configValue'>
+  <div class="{{configValue.dataStyle.styleClass}}">{{userData[configValue.name]}}</div>
+</ng-template>
+
+<ng-template #normalType let-userData="userData" let-configValue='configValue'>
+  <div class="{{configValue.dataStyle.styleClass}}">{{userData[configValue.name]}}</div>
 </ng-template>

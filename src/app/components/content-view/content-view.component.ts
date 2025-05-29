@@ -1,6 +1,11 @@
-import { Component, Input, Output } from '@angular/core';
+import { Component, Input, Output, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Subject } from 'rxjs';
-import { DataSet, SortEvent, TypeEvent } from 'src/app/shared/models/data';
+import {
+  DataSet,
+  DataStyle,
+  SortEvent,
+  ActionEvent,
+} from 'src/app/shared/models/data';
 import { action } from 'src/app/shared/models/constants';
 
 @Component({
@@ -9,10 +14,13 @@ import { action } from 'src/app/shared/models/constants';
   styleUrls: ['./content-view.component.scss'],
 })
 export class ContentViewComponent {
+  @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
+  @ViewChild('normalType') normalTemplate!: TemplateRef<unknown>;
+
   @Input() tableConfig!: any[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
-  @Output() onActionTriggered = new Subject<TypeEvent>();
+  @Output() onActionTriggered = new Subject<ActionEvent>();
   action = action;
 
   // For emitting name of field and sortOrder
@@ -32,13 +40,13 @@ export class ContentViewComponent {
     this.onActionTriggered.next({ type: type, id: id });
   }
 
-  // getTableData(value: string | number, dataStyle: any) {
-  //   switch (dataStyle.type) {
-  //     case 'badge':
-  //       `<div class='{{dataStyle.styleClass}}'>{{value}}</div>`;
-  //       break;
-  //     default:
-  //       return value;
-  //   }
-  // }
+  // for styling of the row based on type
+  getTableData(dataStyle: DataStyle): TemplateRef<unknown> {
+    switch (dataStyle['type']) {
+      case 'badge':
+        return this.badgeTemplate;
+      default:
+        return this.normalTemplate;
+    }
+  }
 }

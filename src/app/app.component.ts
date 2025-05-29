@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SortEvent, TypeEvent } from './shared/models/data';
+import { SortEvent, ActionEvent } from './shared/models/data';
 
 @Component({
   selector: 'app-root',
@@ -66,7 +66,7 @@ export class AppComponent {
       width: '5%',
       dataStyle: {
         type: 'string',
-        styleClass: 'test',
+        styleClass: 'id-field',
       },
     },
     {
@@ -74,28 +74,48 @@ export class AppComponent {
       name: 'name',
       sortEnable: true,
       width: '20rem',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'name-field',
+      },
     },
     {
       header: 'Email',
       name: 'email',
       width: '22rem',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'email-field',
+      },
     },
     {
       header: 'Age',
       name: 'age',
       sortEnable: true,
       width: '5%',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'age-field',
+      },
     },
     {
       header: 'Address',
       name: 'address',
       width: '15rem',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'address-field',
+      },
     },
     {
       header: 'Date',
       name: 'date',
       sortEnable: true,
       width: '15rem',
+      dataStyle: {
+        type: 'string',
+        styleClass: 'date-field',
+      },
     },
     {
       header: 'Actions',
@@ -124,7 +144,7 @@ export class AppComponent {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
   }
 
-  onActionReceive(event: TypeEvent) {
+  onActionReceive(event: ActionEvent) {
     console.log({ type: event?.type, id: event?.id });
   }
 }
