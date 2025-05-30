@@ -8,12 +8,10 @@ import { DataSet, SortEvent } from 'src/app/shared/models/data';
   styleUrls: ['./content-view-keys.component.scss'],
 })
 export class ContentViewKeysComponent implements OnInit {
-  userHeader!: any;
   header!: string[];
-  incomeHeader!: any;
 
   @Input() tableDataList!: DataSet[];
-  @Input() sortEnable: boolean = false;
+  @Input() sortEnable: boolean = true;
   @Output() sortValue = new Subject<SortEvent>();
   ngOnInit(): void {
     // getting keys from tableDataList

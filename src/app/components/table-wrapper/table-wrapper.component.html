@@ -1,0 +1,17 @@
+<ng-container *ngIf="tableConfig && tableConfig.length !== 0; else contentViewKeys">
+    <app-content-view 
+        [tableConfig]="tableConfig" 
+        [tableDataList]="tableDataList"
+        (onSortTriggered)="onSort($event)"
+        (onActionTriggered)="onAction($event)"
+    >
+    </app-content-view>
+</ng-container>
+
+<ng-template #contentViewKeys>
+    <app-content-view-keys 
+        [tableDataList]="tableDataList"
+        (sortValue)="onSort($event)"
+    >
+    </app-content-view-keys>
+</ng-template>

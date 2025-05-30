@@ -1,15 +1,7 @@
-<app-content-view 
+<app-table-wrapper 
   [tableConfig]="tableConfig" 
   [tableDataList]="users" 
-  (onSortTriggered)="onSort($event)"
   (onActionTriggered)="onActionReceive($event)"
+  (onSortTriggered)="onSort($event)"
 >
-</app-content-view>
-
-
-<!-- <app-content-view-keys 
-  [tableDataList]="users" 
-  (sortValue)="onSort($event)"
->
-  <b>Aayush</b>
-</app-content-view-keys> -->
+</app-table-wrapper>
