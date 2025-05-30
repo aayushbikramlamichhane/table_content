@@ -1,10 +1,18 @@
-import { Component, Input, Output, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  TemplateRef,
+  ViewChild,
+  ViewEncapsulation,
+} from '@angular/core';
 import { Subject } from 'rxjs';
 import {
   DataSet,
   DataStyle,
   SortEvent,
   ActionEvent,
+  ConfigSet,
 } from 'src/app/shared/models/data';
 import { action } from 'src/app/shared/models/constants';
 
@@ -17,7 +25,7 @@ export class ContentViewComponent {
   @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
   @ViewChild('normalType') normalTemplate!: TemplateRef<unknown>;
 
-  @Input() tableConfig!: any[];
+  @Input() tableConfig!: ConfigSet[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
   @Output() onActionTriggered = new Subject<ActionEvent>();
@@ -30,6 +38,7 @@ export class ContentViewComponent {
       sortOrder: event?.sortOrder,
     });
   }
+
   // for emitting type and id
   onActionTrigger(type: string, id: number) {
     this.onActionTriggered.next({ type: type, id: id });
@@ -41,8 +50,8 @@ export class ContentViewComponent {
   }
 
   // for styling of the row based on type
-  getTableData(dataStyle: DataStyle): TemplateRef<unknown> {
-    switch (dataStyle['type']) {
+  getTableData(dataStyle: DataStyle | undefined): TemplateRef<unknown> {
+    switch (dataStyle?.type) {
       case 'badge':
         return this.badgeTemplate;
       default:

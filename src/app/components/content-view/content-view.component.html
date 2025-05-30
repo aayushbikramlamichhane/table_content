@@ -2,9 +2,9 @@
   <ng-container *ngFor="let configValue of tableConfig">
     <ng-container *ngIf="configValue.header != action">
       <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name"
-        [sortEnable]="configValue.sortEnable" [width]="configValue.width" let-userData>
+        [sortEnable]="configValue.sortEnable || false" [width]="configValue.width" let-userData>
         <ng-container
-          *ngTemplateOutlet="getTableData( configValue.dataStyle); context: { userData: userData, configValue: configValue }">
+          *ngTemplateOutlet="getTableData( configValue.dataStyle ); context: { userData: userData, configValue: configValue }">
         </ng-container>
       </ng-template>
     </ng-container>
