@@ -1,0 +1,28 @@
+npm error code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: table@0.0.0
+npm error Found: @storybook/addon-docs@8.6.14
+npm error node_modules/@storybook/addon-docs
+npm error   @storybook/addon-docs@"8.6.14" from @storybook/addon-essentials@8.6.14
+npm error   node_modules/@storybook/addon-essentials
+npm error     dev @storybook/addon-essentials@"^8.6.14" from the root project
+npm error   dev @storybook/addon-docs@"9.0.3" from the root project
+npm error
+npm error Could not resolve dependency:
+npm error dev @storybook/addon-docs@"9.0.3" from the root project
+npm error
+npm error Conflicting peer dependency: storybook@9.0.3
+npm error node_modules/storybook
+npm error   peer storybook@"^9.0.3" from @storybook/addon-docs@9.0.3
+npm error   node_modules/@storybook/addon-docs
+npm error     dev @storybook/addon-docs@"9.0.3" from the root project
+npm error
+npm error Fix the upstream dependency conflict, or retry
+npm error this command with --force or --legacy-peer-deps
+npm error to accept an incorrect (and potentially broken) dependency resolution.
+npm error
+npm error
+npm error For a full report see:
+npm error C:\Users\Dell\AppData\Local\npm-cache\_logs\2025-06-01T11_25_27_147Z-eresolve-report.txt
+npm error A complete log of this run can be found in: C:\Users\Dell\AppData\Local\npm-cache\_logs\2025-06-01T11_25_27_147Z-debug-0.log

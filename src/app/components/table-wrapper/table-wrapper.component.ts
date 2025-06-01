@@ -5,7 +5,7 @@ import {
   DataSet,
   SortEvent,
   ConfigSet,
-} from 'src/app/shared/models/data';
+} from 'src/app/components/models/data';
 
 @Component({
   selector: 'app-table-wrapper',

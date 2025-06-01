@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SortEvent, ActionEvent } from './shared/models/data';
+import { SortEvent, ActionEvent } from './components/models/data';
 
 @Component({
   selector: 'app-root',

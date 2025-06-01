@@ -1,5 +1,5 @@
 export enum SortOrder {
   Ascending = 'ASC',
-  Descending = 'DESC',
+   Descending = 'DESC',
 }
 
