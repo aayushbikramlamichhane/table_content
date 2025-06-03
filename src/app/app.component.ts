@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { SortEvent, ActionEvent } from './components/models/data';
+import { DataSet,SortEvent, ActionEvent, ConfigSet } from './shared/models/data';
 
 @Component({
   selector: 'app-root',
@@ -7,7 +7,7 @@ import { SortEvent, ActionEvent } from './components/models/data';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  users = [
+  users: DataSet[] = [
     {
       id: 1,
       name: 'Aayush Bikram Lamichhane',
@@ -58,7 +58,7 @@ export class AppComponent {
     },
   ];
 
-  tableConfig = [
+  tableConfig: ConfigSet[] = [
     {
       header: 'S.N.',
       name: 'id',

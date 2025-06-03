@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
-import { DataSet, SortEvent } from 'src/app/components/models/data';
+import { DataSet, SortEvent } from '../shared/models/data';
 
 @Component({
   selector: 'app-content-view-keys',

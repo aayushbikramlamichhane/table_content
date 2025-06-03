@@ -7,14 +7,8 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import {
-  DataSet,
-  DataStyle,
-  SortEvent,
-  ActionEvent,
-  ConfigSet,
-} from 'src/app/components/models/data';
-import { action } from 'src/app/components/models/constants';
+import { action } from '../shared/models/constants';
+import { ConfigSet, DataSet, SortEvent, ActionEvent, DataStyle } from '../shared/models/data';
 
 @Component({
   selector: 'app-content-view',
