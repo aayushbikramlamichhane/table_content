@@ -7,6 +7,7 @@ import {
   ViewEncapsulation,
 } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import {
   DataSet,
   DataStyle,
@@ -15,6 +16,7 @@ import {
   ConfigSet,
 } from 'src/app/components/models/data';
 import { action } from 'src/app/components/models/constants';
+
 
 @Component({
   selector: 'app-content-view',

@@ -1,11 +1,13 @@
 import { Component, Input, Output } from '@angular/core';
 import { Subject } from 'rxjs';
+
 import {
   ActionEvent,
   DataSet,
   SortEvent,
   ConfigSet,
 } from 'src/app/components/models/data';
+
 
 @Component({
   selector: 'app-table-wrapper',

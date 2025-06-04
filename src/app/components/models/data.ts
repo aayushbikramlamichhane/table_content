@@ -29,11 +29,11 @@ export interface ActionSet {
 
 export interface SortEvent {
   readonly name: string;
-   sortOrder: SortOrder;
+  readonly sortOrder: SortOrder;
 }
 
 export interface ActionEvent {
-  type: string;
-  id: number;
+  readonly type: string;
+  readonly id: number;
 }
 
