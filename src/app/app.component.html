@@ -1,3 +1,4 @@
+
 <app-table-wrapper 
   [tableConfig]="tableConfig" 
   [tableDataList]="users" 
@@ -5,3 +6,11 @@
   (onSortTriggered)="onSort($event)"
 >
 </app-table-wrapper>
+<app-table-wrapper
+  [tableConfig]="tableConfig"
+  [tableDataList]="users"
+  (onActionTriggered)="onActionReceive($event)"
+  (onSortTriggered)="onSort($event)"
+>
+</app-table-wrapper>
+>>>>>>> 3c13004157e4929dc74e764f5953eaaeb4a0e345

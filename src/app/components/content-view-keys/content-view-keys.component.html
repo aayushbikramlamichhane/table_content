@@ -1,7 +1,13 @@
-<app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)" >
-    <ng-container *ngFor="let configValue of header">
-        <ng-template appTableColumn [header]="configValue" [name]="configValue" [sortEnable]="sortEnable" let-userData>
-            {{userData[configValue]}}
-        </ng-template>
-    </ng-container>
+<app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)">
+  <ng-container *ngFor="let configValue of header">
+    <ng-template
+      appTableColumn
+      [header]="configValue"
+      [name]="configValue"
+      [sortEnable]="sortEnable"
+      let-userData
+    >
+      {{ userData[configValue] }}
+    </ng-template>
+  </ng-container>
 </app-content-table>

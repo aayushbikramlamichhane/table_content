@@ -1,13 +1,22 @@
-import { Component, Input, Output, TemplateRef, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+  Component,
+  Input,
+  Output,
+  TemplateRef,
+  ViewChild,
+  } from '@angular/core';
 import { Subject } from 'rxjs';
+import { action } from 'src/app/components/models/constants';
+
 import {
   DataSet,
   DataStyle,
   SortEvent,
   ActionEvent,
   ConfigSet,
+
 } from 'src/app/shared/models/data';
-import { action } from 'src/app/shared/models/constants';
+
 
 @Component({
   selector: 'app-content-view',
@@ -31,7 +40,7 @@ export class ContentViewComponent {
       sortOrder: event?.sortOrder,
     });
   }
-  
+
   // for emitting type and id
   onActionTrigger(type: string, id: number) {
     this.onActionTriggered.next({ type: type, id: id });

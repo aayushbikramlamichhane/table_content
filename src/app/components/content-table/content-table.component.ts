@@ -7,8 +7,9 @@ import {
 } from '@angular/core';
 import { TableColumnDirective } from '../../shared/directives/table-column.directive';
 import { Subject } from 'rxjs';
-import { DataSet, SortEvent } from '../../shared/models/data';
-import { SortOrder } from '../../shared/models/enum';
+
+import { DataSet, SortEvent } from '../models/data';
+import { SortOrder } from '../models/enum';
 
 @Component({
   selector: 'app-content-table',

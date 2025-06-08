@@ -1,10 +1,31 @@
-import { SortOrder } from "./enum";
+import { SortOrder } from "src/app/components/models/enum";
+
 
 export interface DataSet {
-  readonly [x: string]: unknown;
+  [x: string]: unknown;
 }
 export interface DataStyle {
-  readonly [x: string]: unknown;
+  [x: string]: unknown;
+}
+
+export interface ConfigSet {
+  header: string;
+  name: string;
+  width: string;
+  sortEnable?: boolean;
+  dataStyle?: DataStyle;
+  actions?: ActionSet[];
+}
+
+export interface DataStyle {
+  type: string;
+  styleClass: string;
+}
+
+export interface ActionSet {
+  type: string;
+  icon: string;
+  templateItem?: ActionSet[];
 }
 
 export interface ConfigSet {
@@ -37,4 +58,3 @@ export interface ActionEvent {
   type: string;
   id: number;
 }
-

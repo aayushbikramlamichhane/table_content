@@ -7,7 +7,7 @@ export class TableColumnDirective {
   @Input() header!: string;
   @Input() sortEnable: boolean = false;
   @Input() name!: string;
-  @Input() width !: string;
+  @Input() width!: string;
 
   constructor(public templateRef: TemplateRef<any>) {}
 }
