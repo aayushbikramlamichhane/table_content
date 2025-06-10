@@ -1,0 +1,13 @@
+<app-card-layout  [viewContent]="viewContent">
+    <ng-container *ngFor="let configValue of viewConfig.customLayer">
+      <ng-template
+        appTableColumn
+        [header]="configValue?.header"
+        [name]="configValue?.name"
+        let-userData
+      >
+        {{ userData[configValue.name] }}
+      </ng-template>
+    </ng-container>
+  </app-card-layout>
+  

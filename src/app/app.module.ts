@@ -9,8 +9,8 @@ import { ContentViewComponent } from './components/table-wrapper/components/cont
 import { ContentViewKeysComponent } from './components/table-wrapper/components/content-view-keys/content-view-keys.component';
 import { UpperCasePipe } from './shared/pipes/upper-case.pipe';
 import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
-import { ViewLayoutComponent } from './components/view-layout/view-layout.component';
-import { CardLayoutComponent } from './components/view-layout/card-layout/card-layout.component';
+import { CardLayoutComponent } from './components/card-wrapper/card-layout/card-layout.component';
+import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 
 @NgModule({
   declarations: [
@@ -22,13 +22,10 @@ import { CardLayoutComponent } from './components/view-layout/card-layout/card-l
     ContentViewKeysComponent,
     UpperCasePipe,
     TableWrapperComponent,
-    ViewLayoutComponent,
     CardLayoutComponent,
+    CardWrapperComponent,
   ],
-  imports: [
-    BrowserModule, 
-    AppRoutingModule
-  ],
+  imports: [BrowserModule, AppRoutingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
