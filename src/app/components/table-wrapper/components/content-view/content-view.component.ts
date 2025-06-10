@@ -13,8 +13,8 @@ import {
   SortEvent,
   ActionEvent,
   ConfigSet,
-} from 'src/app/components/models/data';
-import { action } from 'src/app/components/models/constants';
+} from 'src/app/components/table-wrapper/components/shared/models/data';
+import { action } from 'src/app/components/table-wrapper/components/shared/models/constants';
 
 @Component({
   selector: 'app-content-view',

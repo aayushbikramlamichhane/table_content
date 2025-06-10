@@ -5,7 +5,7 @@ import {
   Output,
   QueryList,
 } from '@angular/core';
-import { TableColumnDirective } from '../../shared/directives/table-column.directive';
+import { TableColumnDirective } from '../../../../../shared/directives/table-column.directive';
 import { Subject } from 'rxjs';
 import { DataSet, SortEvent } from '../models/data';
 import { SortOrder } from '../models/enum';

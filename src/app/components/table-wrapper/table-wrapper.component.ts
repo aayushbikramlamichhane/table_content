@@ -6,7 +6,7 @@ import {
   DataSet,
   SortEvent,
   ConfigSet,
-} from 'src/app/components/models/data';
+} from 'src/app/components/table-wrapper/components/shared/models/data';
 
 
 @Component({

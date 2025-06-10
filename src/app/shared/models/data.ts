@@ -1,4 +1,4 @@
-import { SortOrder } from "src/app/components/models/enum";
+import { SortOrder } from "src/app/components/table-wrapper/components/shared/models/enum";
 
 
 export interface DataSet {
