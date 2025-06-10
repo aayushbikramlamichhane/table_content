@@ -1,0 +1,22 @@
+<div class="card-container d-flex gap-5 flex-wrap p-5">
+  <div class="card" style="width: 18rem" *ngFor="let user of viewContent">
+    <div class="card-body">
+      <div class="card-text d-flex flex-column gap-2">
+        <div class="d-flex gap-2 align-items-center flex-column">
+          <ng-container *ngFor="let item of column">
+            <div class="d-flex gap-1 align-item-center justigy-content-center">
+              <h5>{{ item.header }}:</h5>
+              <ng-container
+                *ngTemplateOutlet="
+                  item.templateRef;
+                  context: { $implicit: user }
+                "
+              >
+              </ng-container>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

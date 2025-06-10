@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-
-
-import { DataSet,SortEvent, ActionEvent, ConfigSet } from './shared/models/data';
-
+import {
+  DataSet,
+  SortEvent,
+  ActionEvent,
+  ConfigSet,
+} from './shared/models/data';
 
 @Component({
   selector: 'app-root',
@@ -61,85 +63,136 @@ export class AppComponent {
     },
   ];
 
-  tableConfig: ConfigSet[] = [
+  tableConfig = [
     {
-      header: 'S.N.',
-      name: 'id',
-      sortEnable: true,
-      width: '5%',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'id-field',
-      },
-    },
-    {
-      header: 'Name',
-      name: 'name',
-      sortEnable: true,
-      width: '20rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'name-field',
-      },
-    },
-    {
-      header: 'Email',
-      name: 'email',
-      width: '22rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'email-field',
-      },
-    },
-    {
-      header: 'Age',
-      name: 'age',
-      sortEnable: true,
-      width: '5%',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'age-field',
-      },
-    },
-    {
-      header: 'Address',
-      name: 'address',
-      width: '15rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'address-field',
-      },
-    },
-    {
-      header: 'Date',
-      name: 'date',
-      sortEnable: true,
-      width: '15rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'date-field',
-      },
-    },
-    {
-      header: 'Actions',
-      name: 'action',
-      actions: [
-        {
-          type: 'view',
-          icon: '/assets/img/eye.png',
-        },
-        {
-          type: 'menu',
-          icon: '/assets/img/menu.svg',
-          templateItem: [
-            {
-              type: 'edit',
-              icon: '/assets/img/edit.svg',
+      config: {
+        customLayer: [
+          {
+            header: 'S.N.',
+            name: 'id',
+            sortEnable: true,
+            width: '5%',
+            usePipe: '',
+            dataStyle: {
+              type: 'badge',
+              styleClass: 'id-field',
             },
-          ],
-        },
-      ],
-      width: '10%',
+          },
+          {
+            header: 'Name',
+            name: 'name',
+            sortEnable: true,
+            width: '20rem',
+            usePipe: 'uppercase',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'name-field',
+            },
+          },
+          {
+            header: 'Email',
+            name: 'email',
+            width: '22rem',
+            usePipe: '',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'email-field',
+            },
+          },
+          {
+            header: 'Age',
+            name: 'age',
+            sortEnable: true,
+            width: '5%',
+            usePipe: '',
+            dataStyle: {
+              type: 'badge',
+              styleClass: 'age-field',
+            },
+          },
+          {
+            header: 'Address',
+            name: 'address',
+            width: '15rem',
+            usePipe: '',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'address-field',
+            },
+          },
+          {
+            header: 'Date',
+            name: 'date',
+            sortEnable: true,
+            width: '15rem',
+            usePipe: '',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'date-field',
+            },
+          },
+          {
+            header: 'Actions',
+            name: 'action',
+            width: '10%',
+            usePipe: '',
+            actions: [
+              {
+                type: 'view',
+                icon: '/assets/img/eye.png',
+              },
+              {
+                type: 'menu',
+                icon: '/assets/img/menu.svg',
+                templateItem: [
+                  {
+                    type: 'edit',
+                    icon: '/assets/img/edit.svg',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+    },
+  ];
+
+  viewConfig = {
+    customLayer: [
+      {
+        header: 'Date',
+        name: 'date',
+        styleClass: 'date-field',
+        dataType: 'number',
+        usePipe: 'datePipe',
+      },
+      {
+        header: 'Name',
+        name: 'name',
+        styleClass: 'name-field',
+        dataType: 'string',
+        usePipe: 'uppercase',
+      },
+    ],
+  };
+
+  viewContent = [
+    {
+      id: 10,
+      name: 'Sagar Khanal',
+      email: 'sagar@example.com',
+      age: 25,
+      address: 'Kawasoti, Nepal',
+      date: '2024-06-14',
+    },
+    {
+      id: 4,
+      name: 'John Cena',
+      email: 'john@example.com',
+      age: 29,
+      address: 'Kathmandu, Nepal',
+      date: '2022-04-15',
     },
   ];
 

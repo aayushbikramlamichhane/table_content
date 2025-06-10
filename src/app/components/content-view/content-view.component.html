@@ -1,26 +1,47 @@
 <app-content-table [tableDataList]="tableDataList" (onSort)="onSort($event)">
-  <ng-container *ngFor="let configValue of tableConfig">
-    <ng-container *ngIf="configValue.header != action">
-      <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name"
-        [sortEnable]="configValue.sortEnable || false" [width]="configValue.width" let-userData>
+  <ng-container *ngFor="let configValue of tableConfig[0]?.config?.customLayer">
+    <ng-container *ngIf="configValue?.header != action">
+      <ng-template
+        appTableColumn
+        [header]="configValue.header"
+        [name]="configValue.name"
+        [sortEnable]="configValue.sortEnable"
+        [width]="configValue.width"
+        let-userData
+      >
         <ng-container
-          *ngTemplateOutlet="getTableData( configValue.dataStyle ); context: { userData: userData, configValue: configValue }">
+          *ngTemplateOutlet="
+            getTableData(configValue.dataStyle);
+            context: { userData: userData, configValue: configValue }
+          "
+        >
         </ng-container>
       </ng-template>
     </ng-container>
 
-    <ng-container *ngIf="configValue.header == action">
-      <ng-template appTableColumn [header]="configValue.header" [name]="configValue.name" let-userData>
+    <ng-container *ngIf="configValue?.header == action">
+      <ng-template
+        appTableColumn
+        [header]="configValue.header"
+        [name]="configValue.name"
+        let-userData
+      >
         <div class="button-container">
           <ng-container *ngFor="let action of configValue.actions">
             <ng-container *ngIf="!action.templateItem">
-              <button class="button-icon" (click)="onActionTrigger(action.type, userData.id)">
+              <button
+                class="button-icon"
+                (click)="onActionTrigger(action.type, userData.id)"
+              >
                 <img [src]="action.icon" alt="icon" class="image-icon" />
               </button>
             </ng-container>
 
             <ng-container *ngIf="action.templateItem">
-              <button class="button-icon" (click)="onActionTypeSelect(action.type, userData.id)">
+              <button
+                class="button-icon"
+                (click)="onActionTypeSelect(action.type, userData.id)"
+              >
                 <img [src]="action.icon" alt="icon" class="image-icon" />
               </button>
             </ng-container>
@@ -41,10 +62,14 @@
   </div>
 </ng-template>
 
-<ng-template #badgeType let-userData="userData" let-configValue='configValue'>
-  <div class="{{configValue.dataStyle.styleClass}}">{{userData[configValue.name]}}</div>
+<ng-template #badgeType let-userData="userData" let-configValue="configValue">
+  <div class="{{ configValue.dataStyle.styleClass }}">
+    {{ userData[configValue.name] }}
+  </div>
 </ng-template>
 
-<ng-template #normalType let-userData="userData" let-configValue='configValue'>
-  <div class="{{configValue.dataStyle.styleClass}}">{{userData[configValue.name]}}</div>
+<ng-template #normalType let-userData="userData" let-configValue="configValue">
+  <div class="{{ configValue.dataStyle.styleClass }}">
+    {{ userData[configValue.name] }}
+  </div>
 </ng-template>

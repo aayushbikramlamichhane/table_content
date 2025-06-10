@@ -4,7 +4,6 @@ import {
   Output,
   TemplateRef,
   ViewChild,
-  ViewEncapsulation,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 
@@ -17,7 +16,6 @@ import {
 } from 'src/app/components/models/data';
 import { action } from 'src/app/components/models/constants';
 
-
 @Component({
   selector: 'app-content-view',
   templateUrl: './content-view.component.html',
@@ -27,7 +25,7 @@ export class ContentViewComponent {
   @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
   @ViewChild('normalType') normalTemplate!: TemplateRef<unknown>;
 
-  @Input() tableConfig!: ConfigSet[];
+  @Input() tableConfig!: any[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
   @Output() onActionTriggered = new Subject<ActionEvent>();
@@ -52,7 +50,7 @@ export class ContentViewComponent {
   }
 
   // for styling of the row based on type
-  getTableData(dataStyle: DataStyle | undefined): TemplateRef<unknown> {
+  getTableData(dataStyle: DataStyle): TemplateRef<unknown> {
     switch (dataStyle?.type) {
       case 'badge':
         return this.badgeTemplate;

@@ -15,7 +15,7 @@ import {
   styleUrls: ['./table-wrapper.component.scss'],
 })
 export class TableWrapperComponent {
-  @Input() tableConfig!: ConfigSet[];
+  @Input() tableConfig!: any[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
   @Output() onActionTriggered = new Subject<ActionEvent>();

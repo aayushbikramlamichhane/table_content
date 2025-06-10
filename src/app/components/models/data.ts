@@ -1,4 +1,4 @@
-import { SortOrder } from "./enum";
+import { SortOrder } from './enum';
 
 export interface DataSet {
   readonly [x: string]: unknown;
@@ -36,4 +36,3 @@ export interface ActionEvent {
   readonly type: string;
   readonly id: number;
 }
-
