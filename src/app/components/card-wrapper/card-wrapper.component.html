@@ -1,12 +1,30 @@
 <app-card-layout [viewContent]="viewContent">
   <ng-container *ngFor="let configValue of viewConfig.customLayer">
     <ng-template
-      appTableColumn
+      appCardColumn
       [header]="configValue.header"
       [name]="configValue.name"
       let-userData
     >
-      {{ userData[configValue.name] }}
+      <ng-container
+        *ngTemplateOutlet="
+          getDataStyle(configValue);
+          context: { configValue: configValue, userData: userData }
+        "
+      ></ng-container>
     </ng-template>
   </ng-container>
 </app-card-layout>
+
+
+<ng-template #badgeType let-configValue="configValue" let-userData="userData">
+  <div class="{{ configValue.styleClass }}">
+    {{ userData[configValue.name] }}
+  </div>
+</ng-template>
+
+<ng-template #defaultType let-configValue="configValue" let-userData="userData">
+  <div class="{{ configValue.styleClass }}">
+    {{ userData[configValue.name] }}
+  </div>
+</ng-template>

@@ -12,4 +12,13 @@ export interface ViewCustomLayer {
   styleClass: string;
   dataType: string;
   usePipe: string;
+  actions?: ActionSet[]
+}
+
+
+
+export interface ActionSet {
+  type: string;
+  icon: string;
+  templateItem?: ActionSet[];
 }

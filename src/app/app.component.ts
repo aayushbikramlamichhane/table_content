@@ -162,6 +162,13 @@ export class AppComponent {
   viewConfig: ViewConfigSet = {
     customLayer: [
       {
+        header: 'Id',
+        name: 'id',
+        styleClass: 'id-field',
+        dataType: 'badge',
+        usePipe: '',
+      },
+      {
         header: 'Name',
         name: 'name',
         styleClass: 'name-field',
@@ -169,39 +176,52 @@ export class AppComponent {
         usePipe: 'uppercase',
       },
       {
+        header: 'Email',
+        name: 'email',
+        styleClass: 'email-field',
+        dataType: 'string',
+        usePipe: '',
+      },
+      {
+        header: 'Age',
+        name: 'age',
+        styleClass: 'age-field',
+        dataType: 'badge',
+        usePipe: '',
+      },
+      {
+        header: 'Address',
+        name: 'address',
+        styleClass: 'address-field',
+        dataType: 'string',
+        usePipe: '',
+      },
+      {
         header: 'Date',
         name: 'date',
         styleClass: 'date-field',
-        dataType: 'number',
+        dataType: 'string',
         usePipe: 'datePipe',
       },
     ],
   };
 
-  viewContent: ViewDataSet[] = [
+  viewContent: any = [
     {
-      id: 10,
-      name: 'Brute Khanal',
-      email: 'brute@example.com',
-      age: 25,
-      address: 'Kawasoti, Nepal',
-      date: '2024-06-14',
+      id: 11,
+      name: 'Deuba Dai',
+      email: 'deuba@example.com',
+      age: 27,
+      address: 'Dhangadi, Nepal',
+      date: '2024-06-20',
     },
     {
       id: 4,
-      name: 'Devara',
-      email: 'devara@example.com',
+      name: 'John Cena',
+      email: 'john@example.com',
       age: 29,
       address: 'Kathmandu, Nepal',
       date: '2022-04-15',
-    },
-    {
-      id: 1,
-      name: 'Babu Chhetri',
-      email: 'babu@example.com',
-      age: 23,
-      address: 'Kaski, Nepal',
-      date: '2025-02-14',
     },
   ];
 
