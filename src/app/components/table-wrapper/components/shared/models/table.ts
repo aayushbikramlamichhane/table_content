@@ -8,9 +8,16 @@ export interface DataStyle {
 }
 
 export interface ConfigSet {
+  readonly config: {
+    customLayer: CustomLayer[];
+  };
+}
+
+export interface CustomLayer {
   readonly header: string;
   readonly name: string;
   readonly width: string;
+  readonly usePipe: string;
   readonly sortEnable?: boolean;
   readonly dataStyle?: DataStyle;
   readonly actions?: ActionSet[];

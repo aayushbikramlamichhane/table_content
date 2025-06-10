@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { ViewConfigSet, ViewDataSet } from './shared/models/card';
 
 @Component({
   selector: 'app-card-wrapper',
@@ -6,6 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./card-wrapper.component.scss'],
 })
 export class CardWrapperComponent {
-  @Input() viewContent!: any;
-  @Input() viewConfig!: any;
+  @Input() viewContent!: ViewDataSet[];
+  @Input() viewConfig!: ViewConfigSet;
 }

@@ -5,7 +5,7 @@
         appTableColumn
         [header]="configValue.header"
         [name]="configValue.name"
-        [sortEnable]="configValue.sortEnable"
+        [sortEnable]="configValue.sortEnable || false"
         [width]="configValue.width"
         let-userData
       >

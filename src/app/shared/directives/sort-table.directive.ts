@@ -8,7 +8,7 @@ import {
 import { TableColumnDirective } from './table-column.directive';
 
 import { SortOrder } from '../../components/table-wrapper/components/shared/models/enum';
-import { SortEvent } from '../../components/table-wrapper/components/shared/models/data';
+import { SortEvent } from '../../components/table-wrapper/components/shared/models/table';
 
 @Directive({
   selector: '[appSortTable]',

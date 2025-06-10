@@ -4,7 +4,8 @@ import {
   SortEvent,
   ActionEvent,
   ConfigSet,
-} from './shared/models/data';
+} from './shared/models/table';
+import { ViewConfigSet, ViewDataSet } from './shared/models/card';
 
 @Component({
   selector: 'app-root',
@@ -63,7 +64,7 @@ export class AppComponent {
     },
   ];
 
-  tableConfig = [
+  tableConfig: ConfigSet[] = [
     {
       config: {
         customLayer: [
@@ -158,15 +159,8 @@ export class AppComponent {
     },
   ];
 
-  viewConfig = {
+  viewConfig: ViewConfigSet = {
     customLayer: [
-      {
-        header: 'Date',
-        name: 'date',
-        styleClass: 'date-field',
-        dataType: 'number',
-        usePipe: 'datePipe',
-      },
       {
         header: 'Name',
         name: 'name',
@@ -174,25 +168,40 @@ export class AppComponent {
         dataType: 'string',
         usePipe: 'uppercase',
       },
+      {
+        header: 'Date',
+        name: 'date',
+        styleClass: 'date-field',
+        dataType: 'number',
+        usePipe: 'datePipe',
+      },
     ],
   };
 
-  viewContent = [
+  viewContent: ViewDataSet[] = [
     {
       id: 10,
-      name: 'Sagar Khanal',
-      email: 'sagar@example.com',
+      name: 'Brute Khanal',
+      email: 'brute@example.com',
       age: 25,
       address: 'Kawasoti, Nepal',
       date: '2024-06-14',
     },
     {
       id: 4,
-      name: 'John Cena',
-      email: 'john@example.com',
+      name: 'Devara',
+      email: 'devara@example.com',
       age: 29,
       address: 'Kathmandu, Nepal',
       date: '2022-04-15',
+    },
+    {
+      id: 1,
+      name: 'Babu Chhetri',
+      email: 'babu@example.com',
+      age: 23,
+      address: 'Kaski, Nepal',
+      date: '2025-02-14',
     },
   ];
 

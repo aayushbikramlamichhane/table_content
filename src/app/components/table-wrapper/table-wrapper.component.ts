@@ -6,7 +6,7 @@ import {
   DataSet,
   SortEvent,
   ConfigSet,
-} from 'src/app/components/table-wrapper/components/shared/models/data';
+} from 'src/app/components/table-wrapper/components/shared/models/table';
 
 
 @Component({
@@ -15,7 +15,7 @@ import {
   styleUrls: ['./table-wrapper.component.scss'],
 })
 export class TableWrapperComponent {
-  @Input() tableConfig!: any[];
+  @Input() tableConfig!: ConfigSet[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
   @Output() onActionTriggered = new Subject<ActionEvent>();

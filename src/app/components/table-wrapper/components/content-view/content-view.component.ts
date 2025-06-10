@@ -13,7 +13,7 @@ import {
   SortEvent,
   ActionEvent,
   ConfigSet,
-} from 'src/app/components/table-wrapper/components/shared/models/data';
+} from 'src/app/components/table-wrapper/components/shared/models/table';
 import { action } from 'src/app/components/table-wrapper/components/shared/models/constants';
 
 @Component({
@@ -25,7 +25,7 @@ export class ContentViewComponent {
   @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
   @ViewChild('normalType') normalTemplate!: TemplateRef<unknown>;
 
-  @Input() tableConfig!: any[];
+  @Input() tableConfig!: ConfigSet[];
   @Input() tableDataList!: DataSet[];
   @Output() onSortTriggered = new Subject<SortEvent>();
   @Output() onActionTriggered = new Subject<ActionEvent>();
@@ -50,7 +50,7 @@ export class ContentViewComponent {
   }
 
   // for styling of the row based on type
-  getTableData(dataStyle: DataStyle): TemplateRef<unknown> {
+  getTableData(dataStyle: DataStyle | undefined): TemplateRef<unknown> {
     switch (dataStyle?.type) {
       case 'badge':
         return this.badgeTemplate;

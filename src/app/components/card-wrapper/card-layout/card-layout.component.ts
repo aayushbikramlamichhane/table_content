@@ -1,5 +1,6 @@
 import { Component, ContentChildren, Input, QueryList } from '@angular/core';
 import { TableColumnDirective } from 'src/app/shared/directives/table-column.directive';
+import { ViewDataSet } from '../shared/models/card';
 
 @Component({
   selector: 'app-card-layout',
@@ -8,5 +9,5 @@ import { TableColumnDirective } from 'src/app/shared/directives/table-column.dir
 })
 export class CardLayoutComponent {
   @ContentChildren(TableColumnDirective) column!: QueryList<TableColumnDirective>;
-  @Input() viewContent!: any;
+  @Input() viewContent!: ViewDataSet[];
 }

@@ -1,5 +1,4 @@
-import { SortOrder } from "src/app/components/table-wrapper/components/shared/models/enum";
-
+import { SortOrder } from 'src/app/components/table-wrapper/components/shared/models/enum';
 
 export interface DataSet {
   [x: string]: unknown;
@@ -8,10 +7,19 @@ export interface DataStyle {
   [x: string]: unknown;
 }
 
+
+
 export interface ConfigSet {
+  config: {
+    customLayer: CustomLayer[]
+  };
+}
+
+export interface CustomLayer {
   header: string;
   name: string;
   width: string;
+  usePipe: string
   sortEnable?: boolean;
   dataStyle?: DataStyle;
   actions?: ActionSet[];

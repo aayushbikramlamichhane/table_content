@@ -1,8 +1,10 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { Subject } from 'rxjs';
 
-import { DataSet, SortEvent } from 'src/app/components/table-wrapper/components/shared/models/data';
-
+import {
+  DataSet,
+  SortEvent,
+} from 'src/app/components/table-wrapper/components/shared/models/table';
 
 @Component({
   selector: 'app-content-view-keys',

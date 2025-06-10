@@ -7,7 +7,7 @@ import {
 } from '@angular/core';
 import { TableColumnDirective } from '../../../../../shared/directives/table-column.directive';
 import { Subject } from 'rxjs';
-import { DataSet, SortEvent } from '../models/data';
+import { DataSet, SortEvent } from '../models/table';
 import { SortOrder } from '../models/enum';
 
 @Component({
