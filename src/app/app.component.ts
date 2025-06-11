@@ -5,7 +5,7 @@ import {
   ActionEvent,
   ConfigSet,
 } from './shared/models/table';
-import { ViewConfigSet, ViewDataSet } from './shared/models/card';
+import {  ViewDataSet } from './shared/models/card';
 
 @Component({
   selector: 'app-root',
@@ -159,7 +159,7 @@ export class AppComponent {
     },
   ];
 
-  viewConfig: ViewConfigSet = {
+  viewConfig = {
     customLayer: [
       {
         header: 'Id',
@@ -206,24 +206,14 @@ export class AppComponent {
     ],
   };
 
-  viewContent: any = [
-    {
-      id: 11,
-      name: 'Deuba Dai',
-      email: 'deuba@example.com',
-      age: 27,
-      address: 'Dhangadi, Nepal',
-      date: '2024-06-20',
-    },
-    {
-      id: 4,
-      name: 'John Cena',
-      email: 'john@example.com',
-      age: 29,
-      address: 'Kathmandu, Nepal',
-      date: '2022-04-15',
-    },
-  ];
+  viewContent: ViewDataSet = {
+    id: 11,
+    name: 'Deuba Dai',
+    email: 'deuba@example.com',
+    age: 27,
+    address: 'Dhangadi, Nepal',
+    date: '2024-06-20',
+  };
 
   onSort(event: SortEvent) {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });

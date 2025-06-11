@@ -1,4 +1,3 @@
 export interface ViewDataSet {
-  [x: string]: unknown;
+  readonly [x: string]: unknown;
 }
-
