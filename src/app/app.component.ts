@@ -5,7 +5,7 @@ import {
   ActionEvent,
   ConfigSet,
 } from './shared/models/table';
-import {  ViewDataSet } from './shared/models/card';
+import {  ViewConfigSet, ViewDataSet } from './shared/models/card';
 
 @Component({
   selector: 'app-root',
@@ -159,56 +159,28 @@ export class AppComponent {
     },
   ];
 
-  viewConfig = {
+  viewConfig: ViewConfigSet = {
     customLayer: [
       {
-        header: 'Id',
-        name: 'id',
-        styleClass: 'id-field',
-        dataType: 'badge',
-        usePipe: '',
-      },
-      {
-        header: 'Name',
-        name: 'name',
-        styleClass: 'name-field',
-        dataType: 'string',
-        usePipe: 'uppercase',
-      },
-      {
-        header: 'Email',
-        name: 'email',
-        styleClass: 'email-field',
+        key: 'name',
+        label: 'Full Name',
+        styleClass: 'special-name-field',
         dataType: 'string',
         usePipe: '',
       },
       {
-        header: 'Age',
-        name: 'age',
-        styleClass: 'age-field',
-        dataType: 'badge',
-        usePipe: '',
-      },
-      {
-        header: 'Address',
-        name: 'address',
-        styleClass: 'address-field',
+        key: 'date',
+        label: 'Created Date',
+        styleClass: 'special-date-field',
         dataType: 'string',
         usePipe: '',
-      },
-      {
-        header: 'Date',
-        name: 'date',
-        styleClass: 'date-field',
-        dataType: 'string',
-        usePipe: 'datePipe',
       },
     ],
   };
 
   viewContent: ViewDataSet = {
     id: 11,
-    name: 'Deuba Dai',
+    name: 'Deuba',
     email: 'deuba@example.com',
     age: 27,
     address: 'Dhangadi, Nepal',

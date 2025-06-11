@@ -1,15 +1,30 @@
-<div class="card-container d-flex p-5">
-  <div class="card w-25">
-    <div class="card-body">
-      <div class="card-text d-flex gap-4 flex-wrap justify-content-between">
-        <div
-          *ngFor="let item of viewContent | keyvalue : originalOrder"
-          class="d-flex flex-column"
-        >
-          <strong>{{ item.key }}</strong>
-          <span>{{ item.value }}</span>
-        </div>
-      </div>
-    </div>
+<app-card-view [viewContent]="viewContent">
+  <ng-container *ngFor="let configValue of viewConfig.customLayer">
+    <ng-template
+      appCardColumn
+      [key]="configValue.key"
+      [label]="configValue.label"
+      let-userData
+    >
+      <!-- {{ userData[configValue.key] }} -->
+      <ng-container
+        *ngTemplateOutlet="
+          getTemplateType(configValue);
+          context: { configValue: configValue, userData: userData }
+        "
+      ></ng-container>
+    </ng-template>
+  </ng-container>
+</app-card-view>
+
+<ng-template #numberType let-configValue="configValue" let-userData="userData">
+  <div class="{{ configValue.styleClass }}">
+    {{ userData[configValue.key] }}
   </div>
-</div>
+</ng-template>
+
+<ng-template #defaultType let-configValue="configValue" let-userData="userData">
+  <div class="{{ configValue.styleClass }}">
+    {{ userData[configValue.key] }}
+  </div>
+</ng-template>

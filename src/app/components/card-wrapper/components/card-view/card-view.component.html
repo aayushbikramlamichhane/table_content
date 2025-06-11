@@ -1,0 +1,20 @@
+<div class="card-container  p-5">
+  <div class="card w-25">
+    <div class="card-body">
+      <div class="card-text d-flex gap-5 flex-wrap">
+        <div
+          *ngFor="let item of cardColumn"
+          class="d-flex flex-column "
+        >
+          <strong>{{ item.label }}</strong>
+          <ng-container
+            *ngTemplateOutlet="
+              item.templateRef;
+              context: { $implicit: viewContent }
+            "
+          ></ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
