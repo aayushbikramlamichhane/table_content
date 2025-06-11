@@ -13,5 +13,3 @@ export interface ViewCustomLayer {
   dataType: string;
   usePipe: string;
 }
-
-

@@ -1,5 +1,9 @@
 import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
-import { ViewDataSet, ViewConfigSet, ViewCustomLayer } from 'src/app/shared/models/card';
+import {
+  ViewDataSet,
+  ViewConfigSet,
+  ViewCustomLayer,
+} from 'src/app/shared/models/card';
 
 @Component({
   selector: 'app-card-wrapper',
@@ -7,7 +11,7 @@ import { ViewDataSet, ViewConfigSet, ViewCustomLayer } from 'src/app/shared/mode
   styleUrls: ['./card-wrapper.component.scss'],
 })
 export class CardWrapperComponent {
-  @ViewChild('numberType') numberTemplate!: TemplateRef<unknown>;
+  @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
   @ViewChild('defaultType') defaultTemplate!: TemplateRef<unknown>;
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
@@ -15,10 +19,9 @@ export class CardWrapperComponent {
   getTemplateType(configValue: ViewCustomLayer): TemplateRef<unknown> {
     switch (configValue.dataType) {
       case 'badge':
-        return this.numberTemplate;
+        return this.badgeTemplate;
       default:
         return this.defaultTemplate;
     }
   }
 }
-``

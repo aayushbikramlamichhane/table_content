@@ -12,6 +12,8 @@ import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 import { CardViewComponent } from './components/card-wrapper/components/card-view/card-view.component';
 import { CardColumnDirective } from './components/card-wrapper/components/shared/directives/card-column.directive';
+import { DynamicPipePipe } from './components/card-wrapper/components/shared/pipes/dynamic-pipe.pipe';
+import { DatePipePipe } from './components/card-wrapper/components/shared/pipes/date-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -26,6 +28,8 @@ import { CardColumnDirective } from './components/card-wrapper/components/shared
     CardWrapperComponent,
     CardViewComponent,
     CardColumnDirective,
+    DynamicPipePipe,
+    DatePipePipe,
   ],
   imports: [BrowserModule, AppRoutingModule],
   providers: [],

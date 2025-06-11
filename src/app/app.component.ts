@@ -5,7 +5,7 @@ import {
   ActionEvent,
   ConfigSet,
 } from './shared/models/table';
-import {  ViewConfigSet, ViewDataSet } from './shared/models/card';
+import { ViewConfigSet, ViewDataSet } from './shared/models/card';
 
 @Component({
   selector: 'app-root',
@@ -162,9 +162,37 @@ export class AppComponent {
   viewConfig: ViewConfigSet = {
     customLayer: [
       {
+        key: 'id',
+        label: 'Id',
+        styleClass: 'special-name-field',
+        dataType: 'string',
+        usePipe: '',
+      },
+      {
         key: 'name',
         label: 'Full Name',
         styleClass: 'special-name-field',
+        dataType: 'string',
+        usePipe: 'upperCase',
+      },
+      {
+        key: 'email',
+        label: 'Email',
+        styleClass: 'special-email-field',
+        dataType: 'string',
+        usePipe: '',
+      },
+      {
+        key: 'age',
+        label: 'Age',
+        styleClass: 'special-age-field',
+        dataType: 'number',
+        usePipe: '',
+      },
+      {
+        key: 'address',
+        label: 'Address',
+        styleClass: 'special-address-field',
         dataType: 'string',
         usePipe: '',
       },
@@ -173,7 +201,7 @@ export class AppComponent {
         label: 'Created Date',
         styleClass: 'special-date-field',
         dataType: 'string',
-        usePipe: '',
+        usePipe: 'datePipe',
       },
     ],
   };
