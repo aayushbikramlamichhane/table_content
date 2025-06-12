@@ -25,6 +25,6 @@
 
 <ng-template #defaultType let-configValue="configValue" let-userData="userData">
   <div class="{{ configValue.styleClass }}">
-    {{ userData[configValue.key] | dynamicPipe:configValue.usePipe }}
+    {{ userData[configValue.key] | dynamicPipe : configValue.usePipe }}
   </div>
 </ng-template>

@@ -4,11 +4,11 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'datePipe',
 })
 export class DatePipePipe implements PipeTransform {
-  transform(value: any): any {
+  transform(value: string): string | Date | number {
     return new Date(value).toLocaleString('default', {
-      year: '2-digit',
-      month: '2-digit',
-      day: '2-digit',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
     });
   }
 }
