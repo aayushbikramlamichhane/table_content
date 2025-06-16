@@ -6,7 +6,7 @@
         [header]="configValue.header"
         [name]="configValue.name"
         [sortEnable]="configValue.sortEnable || false"
-        [width]="configValue.width"
+        [width]="configValue?.width || 'auto'"
         let-userData
       >
         <ng-container
@@ -64,12 +64,12 @@
 
 <ng-template #badgeType let-userData="userData" let-configValue="configValue">
   <div class="{{ configValue.dataStyle.styleClass }}">
-    {{ userData[configValue.name] }}
+    {{ userData[configValue.name] | tablePipe : configValue.usePipe }}
   </div>
 </ng-template>
 
 <ng-template #normalType let-userData="userData" let-configValue="configValue">
   <div class="{{ configValue.dataStyle.styleClass }}">
-    {{ userData[configValue.name] }}
+    {{ userData[configValue.name] | tablePipe : configValue.usePipe }}
   </div>
 </ng-template>

@@ -78,7 +78,6 @@ export class AppComponent {
             name: 'id',
             sortEnable: true,
             width: '5%',
-            usePipe: '',
             dataStyle: {
               type: 'badge',
               styleClass: 'id-field',
@@ -89,7 +88,7 @@ export class AppComponent {
             name: 'name',
             sortEnable: true,
             width: '20rem',
-            usePipe: 'uppercase',
+            usePipe: 'upperCase',
             dataStyle: {
               type: 'string',
               styleClass: 'name-field',
@@ -99,7 +98,6 @@ export class AppComponent {
             header: 'Email',
             name: 'email',
             width: '22rem',
-            usePipe: '',
             dataStyle: {
               type: 'string',
               styleClass: 'email-field',
@@ -110,7 +108,6 @@ export class AppComponent {
             name: 'age',
             sortEnable: true,
             width: '5%',
-            usePipe: '',
             dataStyle: {
               type: 'badge',
               styleClass: 'age-field',
@@ -120,7 +117,6 @@ export class AppComponent {
             header: 'Address',
             name: 'address',
             width: '15rem',
-            usePipe: '',
             dataStyle: {
               type: 'string',
               styleClass: 'address-field',
@@ -131,7 +127,7 @@ export class AppComponent {
             name: 'date',
             sortEnable: true,
             width: '15rem',
-            usePipe: '',
+            usePipe: 'datePipe',
             dataStyle: {
               type: 'string',
               styleClass: 'date-field',
@@ -140,7 +136,6 @@ export class AppComponent {
           {
             header: 'Actions',
             name: 'action',
-            width: '10%',
             usePipe: '',
             actions: [
               {
@@ -236,5 +231,4 @@ export class AppComponent {
   onActionReceive(event: ActionEvent) {
     console.log({ type: event?.type, id: event?.id });
   }
-
 }

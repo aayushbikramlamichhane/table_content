@@ -18,8 +18,8 @@ export interface ConfigSet {
 export interface CustomLayer {
   header: string;
   name: string;
-  width: string;
-  usePipe: string
+  width?: string;
+  usePipe?: string
   sortEnable?: boolean;
   dataStyle?: DataStyle;
   actions?: ActionSet[];

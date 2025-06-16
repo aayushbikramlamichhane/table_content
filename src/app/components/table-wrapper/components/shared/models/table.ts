@@ -16,8 +16,8 @@ export interface ConfigSet {
 export interface CustomLayer {
   readonly header: string;
   readonly name: string;
-  readonly width: string;
-  readonly usePipe: string;
+  readonly width?: string;
+  readonly usePipe?: string;
   readonly sortEnable?: boolean;
   readonly dataStyle?: DataStyle;
   readonly actions?: ActionSet[];
