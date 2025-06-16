@@ -6,6 +6,8 @@ import {
   ConfigSet,
 } from './shared/models/table';
 import { ViewConfigSet, ViewDataSet } from './shared/models/card';
+import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
+import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 
 @Component({
   selector: 'app-root',
@@ -13,6 +15,9 @@ import { ViewConfigSet, ViewDataSet } from './shared/models/card';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  cardWrapperComponent = CardWrapperComponent;
+  tableWrapperComponent = TableWrapperComponent;
+
   users: DataSet[] = [
     {
       id: 1,
@@ -159,6 +164,11 @@ export class AppComponent {
     },
   ];
 
+  tableInputs = {
+    tableDataList: this.users,
+    tableConfig: this.tableConfig,
+  };
+
   viewConfig: ViewConfigSet = {
     customLayer: [
       {
@@ -180,7 +190,6 @@ export class AppComponent {
         label: 'Email',
         styleClass: 'special-email-field',
         dataType: 'string',
-        usePipe: '',
       },
       {
         key: 'age',
@@ -215,6 +224,11 @@ export class AppComponent {
     date: '2024-06-20',
   };
 
+  cardInputs = {
+    viewConfig: this.viewConfig,
+    viewContent: this.viewContent,
+  };
+
   onSort(event: SortEvent) {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
   }
@@ -222,4 +236,5 @@ export class AppComponent {
   onActionReceive(event: ActionEvent) {
     console.log({ type: event?.type, id: event?.id });
   }
+
 }

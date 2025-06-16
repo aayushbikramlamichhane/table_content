@@ -3,7 +3,7 @@
     <div class="card-body">
       <div class="card-text d-flex gap-5 flex-wrap">
         <div *ngFor="let item of cardColumn" class="d-flex flex-column flex-basis-40">
-          <strong>{{ item.label }}</strong>
+          <strong>{{ item.label | upperCase }}</strong>
           <ng-container
             *ngTemplateOutlet="
               item.templateRef;

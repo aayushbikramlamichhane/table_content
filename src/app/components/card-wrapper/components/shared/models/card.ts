@@ -8,8 +8,8 @@ export interface ViewConfigSet {
 
 export interface ViewCustomLayer {
   readonly key: string;
-  readonly label: string;
-  readonly styleClass: string;
-  readonly dataType: string;
-  readonly usePipe: string;
+  readonly label?: string;
+  readonly styleClass?: string;
+  readonly dataType?: string;
+  readonly usePipe?: string;
 }

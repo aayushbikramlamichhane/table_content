@@ -1,9 +1,10 @@
-import { Component, Input, TemplateRef, ViewChild } from '@angular/core';
+import { Component, inject, Input, TemplateRef, ViewChild } from '@angular/core';
 import {
   ViewDataSet,
   ViewConfigSet,
   ViewCustomLayer,
-} from 'src/app/shared/models/card';
+} from './components/shared/models/card';
+
 
 @Component({
   selector: 'app-card-wrapper',

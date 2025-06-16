@@ -6,5 +6,16 @@
 >
 </app-table-wrapper> -->
 
-<app-card-wrapper [viewConfig]="viewConfig"  [viewContent]="viewContent">
-</app-card-wrapper>
+<!-- <app-card-wrapper [viewConfig]="viewConfig" [viewContent]="viewContent">
+</app-card-wrapper> -->
+
+
+<ng-container
+  *ngComponentOutlet="cardWrapperComponent; inputs: cardInputs"
+>
+</ng-container>
+
+<!-- <ng-container
+  *ngComponentOutlet="tableWrapperComponent; inputs: tableInputs"
+>
+</ng-container> -->

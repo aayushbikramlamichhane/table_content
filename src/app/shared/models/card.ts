@@ -8,8 +8,8 @@ export interface ViewConfigSet {
 
 export interface ViewCustomLayer {
   key: string;
-  label: string;
-  styleClass: string;
-  dataType: string;
-  usePipe: string;
+  label?: string;
+  styleClass?: string;
+  dataType?: string;
+  usePipe?: string;
 }
