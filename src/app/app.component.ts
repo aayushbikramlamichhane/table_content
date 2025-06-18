@@ -159,12 +159,8 @@ export class AppComponent {
     },
   ];
 
-  tableInputs = {
-    tableDataList: this.users,
-    tableConfig: this.tableConfig,
-  };
-
   viewConfig: ViewConfigSet = {
+    noOfColumns: 3,
     customLayer: [
       {
         key: 'id',
@@ -217,11 +213,6 @@ export class AppComponent {
     age: 27,
     address: 'Dhangadi, Nepal',
     date: '2024-06-20',
-  };
-
-  cardInputs = {
-    viewConfig: this.viewConfig,
-    viewContent: this.viewContent,
   };
 
   onSort(event: SortEvent) {

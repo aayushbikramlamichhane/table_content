@@ -18,7 +18,7 @@
 </app-card-view>
 
 <ng-template #badgeType let-configValue="configValue" let-userData="userData">
-  <div class="{{ configValue.styleClass }}">
+  <div class="{{ configValue.styleClass }}" >
     {{ userData[configValue.key] | cardPipe : configValue.usePipe }}
   </div>
 </ng-template>

@@ -3,6 +3,7 @@ export interface ViewDataSet {
 }
 
 export interface ViewConfigSet {
+  readonly noOfColumns: number;
   readonly customLayer: ViewCustomLayer[];
 }
 

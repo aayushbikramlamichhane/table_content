@@ -3,7 +3,8 @@ export interface ViewDataSet {
 }
 
 export interface ViewConfigSet {
-  customLayer : ViewCustomLayer[]
+  noOfColumns: number;
+  customLayer: ViewCustomLayer[];
 }
 
 export interface ViewCustomLayer {

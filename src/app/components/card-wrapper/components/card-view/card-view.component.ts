@@ -12,4 +12,11 @@ export class CardViewComponent {
   cardColumn!: QueryList<CardColumnDirective>;
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
+
+  getNoOfColumn() {
+    return {
+      flex: `1 1 calc(100% / ${this.viewConfig.noOfColumns} )`,
+      'min-width': '80px',
+    };
+  }
 }
