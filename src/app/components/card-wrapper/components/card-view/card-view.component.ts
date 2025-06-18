@@ -13,10 +13,10 @@ export class CardViewComponent {
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
 
-  getNoOfColumn() {
+  getNoOfColumn(columnSpace: number) {
     return {
-      flex: `1 1 calc(100% / ${this.viewConfig.noOfColumns} )`,
-      'min-width': '80px',
+      flex: `1 1 calc(100% / ${columnSpace} )`,
+      'min-width': '150px',
     };
   }
 }

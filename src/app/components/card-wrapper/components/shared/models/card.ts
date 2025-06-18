@@ -3,7 +3,7 @@ export interface ViewDataSet {
 }
 
 export interface ViewConfigSet {
-  readonly noOfColumns: number;
+  readonly defaultColumn: number;
   readonly customLayer: ViewCustomLayer[];
 }
 
@@ -13,4 +13,5 @@ export interface ViewCustomLayer {
   readonly styleClass?: string;
   readonly dataType?: string;
   readonly usePipe?: string;
+  readonly occupySpace?: number;
 }

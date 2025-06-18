@@ -4,6 +4,7 @@
       appCardColumn
       [key]="configValue.key"
       [label]="configValue?.label || configValue.key"
+      [columnSpace]="configValue?.occupySpace || viewConfig.defaultColumn"
       let-userData
     >
       <ng-container

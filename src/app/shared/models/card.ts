@@ -3,7 +3,7 @@ export interface ViewDataSet {
 }
 
 export interface ViewConfigSet {
-  noOfColumns: number;
+  defaultColumn: number;
   customLayer: ViewCustomLayer[];
 }
 
@@ -13,4 +13,5 @@ export interface ViewCustomLayer {
   styleClass?: string;
   dataType?: string;
   usePipe?: string;
+  occupySpace?:number
 }

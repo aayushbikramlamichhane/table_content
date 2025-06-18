@@ -1,12 +1,12 @@
 import { Directive, Input, TemplateRef } from '@angular/core';
 
 @Directive({
-  selector: '[appCardColumn]'
+  selector: '[appCardColumn]',
 })
 export class CardColumnDirective {
-  @Input() key !: string;
-  @Input() label !: string;
+  @Input() key!: string;
+  @Input() label!: string;
+  @Input() columnSpace!: number;
 
-  constructor(public templateRef: TemplateRef<any>) { }
-
+  constructor(public templateRef: TemplateRef<unknown>) {}
 }

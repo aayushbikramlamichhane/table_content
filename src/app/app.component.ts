@@ -160,14 +160,13 @@ export class AppComponent {
   ];
 
   viewConfig: ViewConfigSet = {
-    noOfColumns: 3,
+    defaultColumn: 2,
     customLayer: [
       {
         key: 'id',
         label: 'Id',
         styleClass: 'special-name-field',
         dataType: 'string',
-        usePipe: '',
       },
       {
         key: 'name',
@@ -181,20 +180,19 @@ export class AppComponent {
         label: 'Email',
         styleClass: 'special-email-field',
         dataType: 'string',
+        occupySpace: 1,
       },
       {
         key: 'age',
         label: 'Age',
         styleClass: 'special-age-field',
         dataType: 'number',
-        usePipe: '',
       },
       {
         key: 'address',
         label: 'Address',
         styleClass: 'special-address-field',
         dataType: 'string',
-        usePipe: '',
       },
       {
         key: 'date',
@@ -208,8 +206,8 @@ export class AppComponent {
 
   viewContent: ViewDataSet = {
     id: 11,
-    name: 'Deuba',
-    email: 'deuba@example.com',
+    name: 'Dipendra Bahadur Deuba',
+    email: 'dipendra.bahadur@deuba.com',
     age: 27,
     address: 'Dhangadi, Nepal',
     date: '2024-06-20',
