@@ -16,6 +16,22 @@ export class CardWrapperComponent {
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
 
+  isObject(value: any): boolean {
+    return typeof value === 'object' ? true : false;
+  }
+
+  hasNestedObject(obj: any): boolean {
+    for (const key in obj) {
+      const value = obj[key];
+      if (typeof value === 'object') {
+        return true;
+      }
+    }
+    return false;
+  }
+
+
+
   getTemplateType(configValue: ViewCustomLayer): TemplateRef<unknown> {
     switch (configValue.dataType) {
       case 'badge':

@@ -9,6 +9,7 @@ import { ViewConfigSet, ViewDataSet } from './shared/models/card';
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -201,6 +202,22 @@ export class AppComponent {
         dataType: 'string',
         usePipe: 'datePipe',
       },
+      {
+        key: 'status',
+        label: 'Status',
+        styleClass: 'status-name-field',
+        dataType: 'string',
+        occupySpace: 1,
+        getValueFrom: ['name', 'label'],
+      },
+      {
+        key: 'xyz',
+        label: 'Xyz',
+        styleClass: 'status-name-field',
+        dataType: 'string',
+        occupySpace: 1,
+        getValueFrom: ['abc','name'],
+      },
     ],
   };
 
@@ -211,6 +228,15 @@ export class AppComponent {
     age: 27,
     address: 'Dhangadi, Nepal',
     date: '2024-06-20',
+    status: {
+      name: 'Created',
+      label: 'Created Label',
+    },
+    xyz: {
+      abc: {
+        name: 'value',
+      },
+    },
   };
 
   onSort(event: SortEvent) {
