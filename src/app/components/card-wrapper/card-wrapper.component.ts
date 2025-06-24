@@ -17,26 +17,31 @@ export class CardWrapperComponent {
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
 
-  getNestedValue(key: string, targetKey: string): string[] {
-    const results: string[] = [];
-    const base = this.viewContent[key];
+  getNestedValue(viewContentKey: string, targetKey: any): string {
+    let results!: string;
+    const contentKey = this.viewContent[viewContentKey];
+    let targetKeyValue: any[] = [];
 
-    function recurse(obj: any): void {
+    if (typeof targetKey === 'string') {
+      targetKeyValue?.push(targetKey);
+    } else if (typeof targetKey === 'object') {
+      for (const key in targetKey) {
+        targetKeyValue?.push(targetKey[key]);
+      }
+    }
+    function isObject(obj: any): void {
       if (obj && typeof obj === 'object') {
-        for (const k of Object.keys(obj)) {
-          const val = obj[k];
-          if (k === targetKey) {
-            results.push(val);
-          } else if (typeof val === 'object') {
-            recurse(val);
+        for (const key in obj) {
+          const val = obj[key];
+          for (const targetValue of targetKeyValue) {
+            key === targetValue ? (results = val) : isObject(val);
           }
         }
       }
     }
-    recurse(base);
+    isObject(contentKey);
     return results;
   }
-
 
   getTemplateType(configValue: ViewCustomLayer): TemplateRef<unknown> {
     switch (configValue.dataType) {

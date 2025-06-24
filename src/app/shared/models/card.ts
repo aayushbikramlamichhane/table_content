@@ -14,5 +14,5 @@ export interface ViewCustomLayer {
   dataType?: string;
   usePipe?: string;
   occupySpace?: number;
-  getValueFrom?: string[];
+  getValueFrom?: any[];
 }

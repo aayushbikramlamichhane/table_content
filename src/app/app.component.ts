@@ -223,7 +223,14 @@ export class AppComponent {
         styleClass: 'status-name-field',
         dataType: 'object',
         occupySpace: 1,
-        getValueFrom: ['value'],
+        getValueFrom: [
+          'value',
+          'name',
+          {
+            context: 'over',
+            content: 'test',
+          },
+        ],
       },
     ],
   };
@@ -242,12 +249,20 @@ export class AppComponent {
     xyz: {
       abc: {
         name: 'aaaaa',
+        context: {
+          test: 'hello',
+        },
       },
     },
     pqr: {
       abc: {
         value: '123456',
-      }
+        test: 'hello',
+        def: {
+          name: '222',
+          over: '55555',
+        },
+      },
     },
   };
 
