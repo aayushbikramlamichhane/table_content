@@ -24,28 +24,21 @@
 </ng-template>
 
 <ng-template #defaultType let-configValue="configValue" let-userData="userData">
-  <ng-container *ngIf="isObject(userData[configValue.key])">
-    <div class="{{ configValue.styleClass }}">
-      <ng-container *ngFor="let valueItem of configValue.getValueFrom">
-        <ng-container *ngIf="hasNestedObject(userData[configValue.key])">
-          <ng-container
-            *ngFor="let item of userData[configValue.key] | keyvalue"
-          >
-            <!-- {{ item?.key }} -->
-              {{userData[configValue.keyitem.key]}}
-          </ng-container>
-        </ng-container>
-
-        <ng-container *ngIf="!hasNestedObject(userData[configValue.key])">
-          <div>{{ userData[configValue.key][valueItem] }}</div>
-        </ng-container>
-      </ng-container>
-    </div>
-  </ng-container>
-  <ng-container *ngIf="!isObject(userData[configValue.key])">
-    <div class="{{ configValue.styleClass }}">
+  <div class="{{ configValue.styleClass }}">
     {{ userData[configValue.key] | cardPipe : configValue.usePipe }}
   </div>
-  </ng-container>
+</ng-template>
 
+<ng-template #objectType let-configValue="configValue" let-userData="userData">
+  <div class="{{ configValue.styleClass }}">
+    <ng-container *ngFor="let valueItem of configValue.getValueFrom">
+      <ng-container
+        *ngFor="let nestedValue of getNestedValue(configValue.key, valueItem)"
+      >
+        <div class="{{ configValue.styleClass }}">
+          {{ nestedValue }}
+        </div>
+      </ng-container>
+    </ng-container>
+  </div>
 </ng-template>

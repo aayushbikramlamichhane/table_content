@@ -9,7 +9,6 @@ import { ViewConfigSet, ViewDataSet } from './shared/models/card';
 import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
 import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -206,7 +205,7 @@ export class AppComponent {
         key: 'status',
         label: 'Status',
         styleClass: 'status-name-field',
-        dataType: 'string',
+        dataType: 'object',
         occupySpace: 1,
         getValueFrom: ['name', 'label'],
       },
@@ -214,9 +213,17 @@ export class AppComponent {
         key: 'xyz',
         label: 'Xyz',
         styleClass: 'status-name-field',
-        dataType: 'string',
+        dataType: 'object',
         occupySpace: 1,
-        getValueFrom: ['abc','name'],
+        getValueFrom: ['name'],
+      },
+      {
+        key: 'pqr',
+        label: 'Pqr',
+        styleClass: 'status-name-field',
+        dataType: 'object',
+        occupySpace: 1,
+        getValueFrom: ['value'],
       },
     ],
   };
@@ -225,7 +232,7 @@ export class AppComponent {
     id: 11,
     name: 'Dipendra Bahadur Deuba',
     email: 'dipendra.bahadur@deuba.com',
-    age: 27,
+    age: 26,
     address: 'Dhangadi, Nepal',
     date: '2024-06-20',
     status: {
@@ -234,8 +241,13 @@ export class AppComponent {
     },
     xyz: {
       abc: {
-        name: 'value',
+        name: 'aaaaa',
       },
+    },
+    pqr: {
+      abc: {
+        value: '123456',
+      }
     },
   };
 

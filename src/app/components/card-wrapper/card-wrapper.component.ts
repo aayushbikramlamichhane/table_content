@@ -13,29 +13,37 @@ import {
 export class CardWrapperComponent {
   @ViewChild('badgeType') badgeTemplate!: TemplateRef<unknown>;
   @ViewChild('defaultType') defaultTemplate!: TemplateRef<unknown>;
+  @ViewChild('objectType') objectTemplate!: TemplateRef<unknown>;
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
 
-  isObject(value: any): boolean {
-    return typeof value === 'object' ? true : false;
-  }
+  getNestedValue(key: string, targetKey: string): string[] {
+    const results: string[] = [];
+    const base = this.viewContent[key];
 
-  hasNestedObject(obj: any): boolean {
-    for (const key in obj) {
-      const value = obj[key];
-      if (typeof value === 'object') {
-        return true;
+    function recurse(obj: any): void {
+      if (obj && typeof obj === 'object') {
+        for (const k of Object.keys(obj)) {
+          const val = obj[k];
+          if (k === targetKey) {
+            results.push(val);
+          } else if (typeof val === 'object') {
+            recurse(val);
+          }
+        }
       }
     }
-    return false;
+    recurse(base);
+    return results;
   }
-
 
 
   getTemplateType(configValue: ViewCustomLayer): TemplateRef<unknown> {
     switch (configValue.dataType) {
       case 'badge':
         return this.badgeTemplate;
+      case 'object':
+        return this.objectTemplate;
       default:
         return this.defaultTemplate;
     }
