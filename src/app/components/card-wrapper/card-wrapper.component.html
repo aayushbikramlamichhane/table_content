@@ -30,9 +30,14 @@
 </ng-template>
 
 <ng-template #objectType let-configValue="configValue" let-userData="userData">
-  <ng-container *ngFor="let valueItem of configValue.getValueFrom">
-    <div class="{{ configValue.styleClass }}">
-      {{ getNestedValue(configValue.key, valueItem) }}
-    </div>
+  <ng-container
+    *ngFor="let valueItem of configValue.getValueFrom"
+  >
+    <ng-container *ngFor="let value of getNestedValue(configValue.key, valueItem)">
+      <div class="{{ configValue.styleClass }}">
+        {{ value }}
+      </div>
+    </ng-container>
   </ng-container>
 </ng-template>
+

@@ -17,29 +17,39 @@ export class CardWrapperComponent {
   @Input() viewContent!: ViewDataSet;
   @Input() viewConfig!: ViewConfigSet;
 
-  getNestedValue(viewContentKey: string, targetKey: any): string {
-    let results!: string;
+  getNestedValue(viewContentKey: string, targetKey: any): string[] {
+    const results: string[] = [];
     const contentKey = this.viewContent[viewContentKey];
-    let targetKeyValue: any[] = [];
+    const targetKeyValues: any[] = [];
 
     if (typeof targetKey === 'string') {
-      targetKeyValue?.push(targetKey);
+      targetKeyValues.push(targetKey);
     } else if (typeof targetKey === 'object') {
       for (const key in targetKey) {
-        targetKeyValue?.push(targetKey[key]);
+        targetKeyValues.push(targetKey[key]);
       }
     }
-    function isObject(obj: any): void {
+
+    function searchNested(obj: any): void {
       if (obj && typeof obj === 'object') {
         for (const key in obj) {
           const val = obj[key];
-          for (const targetValue of targetKeyValue) {
-            key === targetValue ? (results = val) : isObject(val);
+
+          for (const target of targetKeyValues) {
+            if (key === target && typeof val !== 'object') {
+              results.push(val);
+            }
+          }
+
+          // Only recurse if 'val' is  object
+          if (val && typeof val === 'object') {
+            searchNested(val);
           }
         }
       }
     }
-    isObject(contentKey);
+
+    searchNested(contentKey);
     return results;
   }
 
