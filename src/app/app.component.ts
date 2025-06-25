@@ -226,10 +226,7 @@ export class AppComponent {
         getValueFrom: [
           'value',
           'name',
-          {
-            context: 'over',
-            content: 'test',
-          },
+          'test'
         ],
       },
     ],
