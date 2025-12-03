@@ -4,9 +4,7 @@ import {
   Output,
   TemplateRef,
   ViewChild,
-  } from '@angular/core';
-import { Subject } from 'rxjs';
-import { action } from 'src/app/components/models/constants';
+} from '@angular/core';
 
 import {
   DataSet,
@@ -14,9 +12,9 @@ import {
   SortEvent,
   ActionEvent,
   ConfigSet,
-
-} from 'src/app/shared/models/data';
-
+} from 'src/app/components/table-wrapper/components/shared/models/table';
+import { action } from 'src/app/components/table-wrapper/components/shared/models/constants';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-content-view',

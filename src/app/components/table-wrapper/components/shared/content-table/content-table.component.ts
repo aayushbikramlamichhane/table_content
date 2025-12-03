@@ -5,10 +5,9 @@ import {
   Output,
   QueryList,
 } from '@angular/core';
-import { TableColumnDirective } from '../../shared/directives/table-column.directive';
+import { TableColumnDirective } from '../directives/table-column.directive';
 import { Subject } from 'rxjs';
-
-import { DataSet, SortEvent } from '../models/data';
+import { DataSet, SortEvent } from '../models/table';
 import { SortOrder } from '../models/enum';
 
 @Component({
@@ -16,7 +15,7 @@ import { SortOrder } from '../models/enum';
   templateUrl: './content-table.component.html',
   styleUrls: ['./content-table.component.scss'],
 })
-export class ContentTableComponent  {
+export class ContentTableComponent {
   sortStates: { [name: string]: SortOrder } = {};
   sortOrder = SortOrder;
 

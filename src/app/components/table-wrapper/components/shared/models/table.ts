@@ -1,4 +1,4 @@
-import { SortOrder } from "./enum";
+import { SortOrder } from './enum';
 
 export interface DataSet {
   readonly [x: string]: unknown;
@@ -8,9 +8,16 @@ export interface DataStyle {
 }
 
 export interface ConfigSet {
+  readonly config: {
+    customLayer: CustomLayer[];
+  };
+}
+
+export interface CustomLayer {
   readonly header: string;
   readonly name: string;
-  readonly width: string;
+  readonly width?: string;
+  readonly usePipe?: string;
   readonly sortEnable?: boolean;
   readonly dataStyle?: DataStyle;
   readonly actions?: ActionSet[];
@@ -36,4 +43,3 @@ export interface ActionEvent {
   readonly type: string;
   readonly id: number;
 }
-

@@ -7,8 +7,8 @@ import {
 } from '@angular/core';
 import { TableColumnDirective } from './table-column.directive';
 
-import { SortOrder } from '../../components/models/enum';
-import { SortEvent } from '../../components/models/data';
+import { SortOrder } from '../models/enum';
+import { SortEvent } from '../models/table';
 
 @Directive({
   selector: '[appSortTable]',

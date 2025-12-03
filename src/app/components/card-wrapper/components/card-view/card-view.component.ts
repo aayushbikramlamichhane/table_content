@@ -1,0 +1,22 @@
+import { Component, ContentChildren, Input, QueryList } from '@angular/core';
+import { ViewConfigSet, ViewDataSet } from '../shared/models/card';
+import { CardColumnDirective } from '../shared/directives/card-column.directive';
+
+@Component({
+  selector: 'app-card-view',
+  templateUrl: './card-view.component.html',
+  styleUrls: ['./card-view.component.scss'],
+})
+export class CardViewComponent {
+  @ContentChildren(CardColumnDirective)
+  cardColumn!: QueryList<CardColumnDirective>;
+  @Input() viewContent!: ViewDataSet;
+  @Input() viewConfig!: ViewConfigSet;
+
+  getNoOfColumn(columnSpace: number) {
+    return {
+      flex: `1 1 calc(100% / ${columnSpace} )`,
+      'min-width': '150px',
+    };
+  }
+}

@@ -1,8 +1,13 @@
 import { Component } from '@angular/core';
-
-
-import { DataSet,SortEvent, ActionEvent, ConfigSet } from './shared/models/data';
-
+import {
+  DataSet,
+  SortEvent,
+  ActionEvent,
+  ConfigSet,
+} from './shared/models/table';
+import { ViewConfigSet, ViewDataSet } from './shared/models/card';
+import { CardWrapperComponent } from './components/card-wrapper/card-wrapper.component';
+import { TableWrapperComponent } from './components/table-wrapper/table-wrapper.component';
 
 @Component({
   selector: 'app-root',
@@ -10,6 +15,9 @@ import { DataSet,SortEvent, ActionEvent, ConfigSet } from './shared/models/data'
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
+  cardWrapperComponent = CardWrapperComponent;
+  tableWrapperComponent = TableWrapperComponent;
+
   users: DataSet[] = [
     {
       id: 1,
@@ -63,85 +71,196 @@ export class AppComponent {
 
   tableConfig: ConfigSet[] = [
     {
-      header: 'S.N.',
-      name: 'id',
-      sortEnable: true,
-      width: '5%',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'id-field',
-      },
-    },
-    {
-      header: 'Name',
-      name: 'name',
-      sortEnable: true,
-      width: '20rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'name-field',
-      },
-    },
-    {
-      header: 'Email',
-      name: 'email',
-      width: '22rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'email-field',
-      },
-    },
-    {
-      header: 'Age',
-      name: 'age',
-      sortEnable: true,
-      width: '5%',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'age-field',
-      },
-    },
-    {
-      header: 'Address',
-      name: 'address',
-      width: '15rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'address-field',
-      },
-    },
-    {
-      header: 'Date',
-      name: 'date',
-      sortEnable: true,
-      width: '15rem',
-      dataStyle: {
-        type: 'string',
-        styleClass: 'date-field',
-      },
-    },
-    {
-      header: 'Actions',
-      name: 'action',
-      actions: [
-        {
-          type: 'view',
-          icon: '/assets/img/eye.png',
-        },
-        {
-          type: 'menu',
-          icon: '/assets/img/menu.svg',
-          templateItem: [
-            {
-              type: 'edit',
-              icon: '/assets/img/edit.svg',
+      config: {
+        customLayer: [
+          {
+            header: 'S.N.',
+            name: 'id',
+            sortEnable: true,
+            width: '5%',
+            dataStyle: {
+              type: 'badge',
+              styleClass: 'id-field',
             },
-          ],
-        },
-      ],
-      width: '10%',
+          },
+          {
+            header: 'Name',
+            name: 'name',
+            sortEnable: true,
+            width: '20rem',
+            usePipe: 'upperCase',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'name-field',
+            },
+          },
+          {
+            header: 'Email',
+            name: 'email',
+            width: '22rem',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'email-field',
+            },
+          },
+          {
+            header: 'Age',
+            name: 'age',
+            sortEnable: true,
+            width: '5%',
+            dataStyle: {
+              type: 'badge',
+              styleClass: 'age-field',
+            },
+          },
+          {
+            header: 'Address',
+            name: 'address',
+            width: '15rem',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'address-field',
+            },
+          },
+          {
+            header: 'Date',
+            name: 'date',
+            sortEnable: true,
+            width: '15rem',
+            usePipe: 'datePipe',
+            dataStyle: {
+              type: 'string',
+              styleClass: 'date-field',
+            },
+          },
+          {
+            header: 'Actions',
+            name: 'action',
+            usePipe: '',
+            actions: [
+              {
+                type: 'view',
+                icon: '/assets/img/eye.png',
+              },
+              {
+                type: 'menu',
+                icon: '/assets/img/menu.svg',
+                templateItem: [
+                  {
+                    type: 'edit',
+                    icon: '/assets/img/edit.svg',
+                  },
+                ],
+              },
+            ],
+          },
+        ],
+      },
+      header: '',
+      name: '',
+      width: '',
     },
   ];
+
+  viewConfig: ViewConfigSet = {
+    defaultColumn: 2,
+    customLayer: [
+      {
+        key: 'id',
+        label: 'Id',
+        styleClass: 'special-name-field',
+        dataType: 'string',
+      },
+      {
+        key: 'name',
+        label: 'Full Name',
+        styleClass: 'special-name-field',
+        dataType: 'string',
+        usePipe: 'upperCase',
+      },
+      {
+        key: 'email',
+        label: 'Email',
+        styleClass: 'special-email-field',
+        dataType: 'string',
+        occupySpace: 1,
+      },
+      {
+        key: 'age',
+        label: 'Age',
+        styleClass: 'special-age-field',
+        dataType: 'number',
+      },
+      {
+        key: 'address',
+        label: 'Address',
+        styleClass: 'special-address-field',
+        dataType: 'string',
+      },
+      {
+        key: 'date',
+        label: 'Created Date',
+        styleClass: 'special-date-field',
+        dataType: 'string',
+        usePipe: 'datePipe',
+      },
+      {
+        key: 'status',
+        label: 'Status',
+        styleClass: 'status-name-field',
+        dataType: 'object',
+        occupySpace: 1,
+        getValueFrom: ['name', 'label'],
+      },
+      {
+        key: 'xyz',
+        label: 'Xyz',
+        styleClass: 'status-name-field',
+        dataType: 'object',
+        occupySpace: 1,
+        getValueFrom: ['name'],
+      },
+      {
+        key: 'pqr',
+        label: 'Pqr',
+        styleClass: 'status-name-field',
+        dataType: 'object',
+        occupySpace: 1,
+        getValueFrom: ['value', 'name', 'test'],
+      },
+    ],
+  };
+
+  viewContent: ViewDataSet = {
+    id: 11,
+    name: 'Dipendra Bahadur Deuba',
+    email: 'dipendra.bahadur@deuba.com',
+    age: 26,
+    address: 'Dhangadi, Nepal',
+    date: '2024-06-20',
+    status: {
+      name: 'Created',
+      label: 'Created Label',
+    },
+    xyz: {
+      abc: {
+        name: 'aaaaa',
+        context: {
+          test: 'hello',
+        },
+      },
+    },
+    pqr: {
+      abc: {
+        value: '123456',
+        test: 'hello',
+        def: {
+          name: '222',
+          over: '55555',
+        },
+      },
+    },
+  };
 
   onSort(event: SortEvent) {
     console.log({ name: event?.name, sortOrder: event?.sortOrder });
