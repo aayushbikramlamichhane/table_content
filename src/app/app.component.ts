@@ -156,6 +156,9 @@ export class AppComponent {
           },
         ],
       },
+      header: '',
+      name: '',
+      width: '',
     },
   ];
 
@@ -223,11 +226,7 @@ export class AppComponent {
         styleClass: 'status-name-field',
         dataType: 'object',
         occupySpace: 1,
-        getValueFrom: [
-          'value',
-          'name',
-          'test'
-        ],
+        getValueFrom: ['value', 'name', 'test'],
       },
     ],
   };

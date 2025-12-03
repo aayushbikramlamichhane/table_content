@@ -8,7 +8,6 @@ import {
   ConfigSet,
 } from 'src/app/components/table-wrapper/components/shared/models/table';
 
-
 @Component({
   selector: 'app-table-wrapper',
   templateUrl: './table-wrapper.component.html',

@@ -5,7 +5,6 @@ import {
   TemplateRef,
   ViewChild,
 } from '@angular/core';
-import { Subject } from 'rxjs';
 
 import {
   DataSet,
@@ -15,6 +14,7 @@ import {
   ConfigSet,
 } from 'src/app/components/table-wrapper/components/shared/models/table';
 import { action } from 'src/app/components/table-wrapper/components/shared/models/constants';
+import { Subject } from 'rxjs';
 
 @Component({
   selector: 'app-content-view',
